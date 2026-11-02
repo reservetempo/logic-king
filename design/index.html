@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Lords &amp; Logicians · Characters</title>
+  <meta name="description" content="Character list for Lords & Logicians, a 2.5D game where logic gates are medieval monks, lords and torch-carrying peasants.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="leaf">
+
+  <header class="masthead">
+    <p class="kicker">Design document · Character list</p>
+    <h1>Lords <span class="amp">&amp;</span> Logicians</h1>
+    <p class="subtitle">The Book of Characters</p>
+    <p class="play-link"><a href="../">Play the prototype</a></p>
+  </header>
+
+  <section class="intro" aria-label="The world">
+    <p class="drop">In this realm every thought travels on foot. Signals are <b>torchbearers</b>, peasants who walk the roads between gates, each carrying a single torch: a <em>lit</em> torch is 1, a <em>dark</em> one is 0. A gate takes the torchbearers who arrive and sends one torchbearer onward, lit or dark, according to the nature of whoever keeps it.</p>
+    <ul class="orders">
+      <li><b>Peasants carry</b> Torchbearers never change a torch on the road. They only walk.</li>
+      <li><b>Monks combine</b> Logician monks weigh two torches and send one on.</li>
+      <li><b>Lords negate</b> A lord overturns what reaches him. The greater lords keep a monk at court and overturn the monk.</li>
+    </ul>
+    <p>Every silhouette echoes its gate symbol, and every lord wears a small ring (a ruff, a brooch, a clasp): the bubble of negation.</p>
+    <p class="motto">Lords negate, monks combine.</p>
+  </section>
+
+  <nav class="contents" aria-label="Characters">
+    <ol>
+      <li><a href="#torchbearer">Hob Wickfoot</a></li>
+      <li><a href="#not">Lord Gainsay <small>NOT</small></a></li>
+      <li><a href="#and">Brother Bothwell <small>AND</small></a></li>
+      <li><a href="#or">Brother Orrin <small>OR</small></a></li>
+      <li><a href="#nand">Count Nandric <small>NAND</small></a></li>
+      <li><a href="#nor">Lady Norwenna <small>NOR</small></a></li>
+    </ol>
+  </nav>
+
+  <div class="flourish" aria-hidden="true">❦</div>
+
+  <!-- Torchbearer -->
+  <article class="sheet" id="torchbearer" aria-labelledby="torchbearer-name">
+    <header class="sheet-head">
+      <p class="gate">The signal</p>
+      <h2 id="torchbearer-name">Hob Wickfoot</h2>
+      <p class="title">Torchbearer of the Low Road, and all his kin</p>
+    </header>
+    <figure class="portrait" data-portrait="torchbearer">
+      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-torchbearer-title">
+        <title id="portrait-torchbearer-title">Hob Wickfoot, a small round peasant in a patched red hood, carrying a lit torch high on a long pole</title>
+        <ellipse cx="140" cy="362" rx="76" ry="8" fill="var(--vignette)" stroke="none"/>
+        <path d="M14 368Q150 356 286 368" stroke-width="1.5" stroke="var(--ink-soft)"/>
+        <circle class="glow" cx="214" cy="77.2" r="44.2" fill="var(--flame-glow)" stroke="none"/><rect x="209.5" y="124.6" width="9.1" height="211.4" fill="var(--habit)"/><path d="M201 98H227L222.5 126.6H205.6Z" fill="var(--wool)"/><path d="M203 109.4H225.1M204.3 119.5H223.8" stroke-width="1.5"/><g transform="translate(214 98) scale(1.3)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <path d="M120 328v18" stroke-width="12.5"/><path d="M120 328v18" stroke="var(--skin)" stroke-width="8"/>
+        <path d="M154 328l5 12" stroke-width="12.5"/><path d="M154 328l5 12" stroke="var(--skin)" stroke-width="8"/>
+        <ellipse cx="116" cy="352" rx="13" ry="6.5" fill="var(--wool)"/>
+        <path d="M110 347l3 10M117 346l3 11" stroke-width="1.4"/>
+        <ellipse cx="166" cy="345" rx="12" ry="6" transform="rotate(-12 166 345)" fill="var(--wool)"/>
+        <path d="M161 340l3 10M168 339l2 10" stroke-width="1.4"/>
+        <path d="M92 300C84 252 104 224 136 224C168 224 186 252 178 300C174 324 156 334 136 334C114 334 96 324 92 300Z" fill="var(--wool)"/>
+        <rect x="104" y="298" width="16" height="14" fill="var(--parchment-shade)" stroke-width="1.4" stroke-dasharray="3 2.5"/>
+        <path d="M126 302q-2 16 1 30M152 302q2 16-1 30" stroke-width="1.4"/>
+        <path d="M95 280Q136 292 176 280" stroke-width="8.5"/><path d="M95 280Q136 292 176 280" stroke="var(--gold-soft)" stroke-width="4"/>
+        <path d="M126 288l-5 18" stroke-width="8.5"/><path d="M126 288l-5 18" stroke="var(--gold-soft)" stroke-width="4"/>
+        <circle cx="126" cy="288" r="4.5" fill="var(--gold-soft)"/>
+        <path d="M164 240C184 246 198 258 206 268L196 282C184 272 172 264 158 260Z" fill="var(--wool)"/>
+        <circle cx="210" cy="272" r="9" fill="var(--skin)"/>
+        <path d="M112 182C98 170 84 172 74 186C88 184 98 190 106 198Z" fill="var(--rubric)"/>
+        <path d="M100 242C94 206 104 170 136 168C168 170 178 206 172 242C156 252 116 252 100 242Z" fill="var(--rubric)"/>
+        <path d="M152 176l12 5-4 12-12-4z" fill="var(--gold-soft)" stroke-width="1.4" stroke-dasharray="2.5 2"/>
+        <ellipse cx="138" cy="206" rx="22" ry="24" fill="var(--skin)"/>
+        <path d="M126 196q5-4 10 0M141 196q5-4 10 0" stroke-width="1.8"/>
+        <circle cx="131" cy="204" r="2.3" fill="var(--ink)" stroke="none"/>
+        <circle cx="146" cy="204" r="2.3" fill="var(--ink)" stroke="none"/>
+        <path d="M139 207q-3 5 1 6" stroke-width="1.6"/>
+        <circle cx="125" cy="214" r="4.5" fill="var(--flame-glow)" stroke="none"/><circle cx="153" cy="214" r="4.5" fill="var(--flame-glow)" stroke="none"/>
+        <path d="M129 215Q139 224 149 215" stroke-width="2"/>
+      </svg>
+    </figure>
+    <div class="sheet-text">
+      <dl class="facts">
+        <dt>Class</dt><dd>Peasant · carries</dd>
+        <dt>Carries</dt><dd>One torch, lit (1) or dark (0)</dd>
+      </dl>
+      <section class="field">
+        <h3>Personality</h3>
+        <p class="drop">Cheerful, dutiful and wholly incurious. A torchbearer never lights or snuffs a torch on the road: he carries what he is handed to the next gate and waits to be told. Gossips in queues, waves at other torchbearers, and flinches whenever Lord Gainsay looks up.</p>
+      </section>
+      <section class="field">
+        <h3>Look</h3>
+        <p>Small and round, with short legs and a bobbing walk so a crowd reads at a glance. Undyed wool tunic, patched hood, rope belt, bound feet. The torch rides high on a long pole so its state shows from across the map: lit, it throws a warm halo; dark, it is a charred wick with a thread of smoke. Hood colors (madder red, woad blue, weld yellow) tell individuals apart.</p>
+      </section>
+    </div>
+  </article>
+
+  <div class="flourish" aria-hidden="true">❦</div>
+
+  <!-- NOT -->
+  <article class="sheet" id="not" aria-labelledby="not-name">
+    <header class="sheet-head">
+      <p class="gate">Gate · NOT</p>
+      <h2 id="not-name">Lord Gainsay</h2>
+      <p class="title">Baron of Contrary Keep</p>
+    </header>
+    <figure class="portrait" data-portrait="not">
+      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-not-title">
+        <title id="portrait-not-title">Lord Gainsay, gaunt in a black triangular cloak and round white ruff, snuffing out an arriving torch with a long snuffer</title>
+        <ellipse cx="176" cy="380" rx="92" ry="8" fill="var(--vignette)" stroke="none"/>
+        <circle class="glow" cx="70" cy="137.2" r="27.2" fill="var(--flame-glow)" stroke="none"/><rect x="67.2" y="165.6" width="5.6" height="244.4" fill="var(--habit)"/><path d="M62 150H78L75.2 167.6H64.8Z" fill="var(--wool)"/><path d="M63.2 157H76.8M64 163.2H76" stroke-width="1.5"/><g transform="translate(70 150) scale(0.8)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <path d="M-6 296Q30 298 58 309L62 331Q30 328-6 340Z" fill="var(--wool)"/>
+        <path d="M53 308l3 22" stroke-width="1.5"/>
+        <circle cx="70" cy="320" r="9" fill="var(--skin)"/>
+        <path d="M84 118L136 244" stroke-width="7.5"/><path d="M84 118L136 244" stroke="var(--silver)" stroke-width="3"/>
+        <path d="M52 140C52 120 60 108 70 108C80 108 88 120 88 140Z" fill="var(--silver)"/>
+        <circle cx="70" cy="105" r="3" fill="var(--silver)"/>
+        <path class="smoke" d="M66 102c-8-9 4-15-2-25c-4-7 3-12 0-19M76 102c6-8-3-13 2-22M50 136c-8-6-6-14-2-20" stroke="var(--smoke)" stroke-width="2.2"/>
+        <path d="M178 128L266 376L90 376Z" fill="var(--wick)"/>
+        <path d="M178 160L208 376L148 376Z" fill="var(--rubric)"/>
+        <path d="M178 168L194 376L162 376Z" fill="var(--wick)"/>
+        <path d="M266 376L246 320L232 376Z" fill="var(--rubric)"/>
+        <circle cx="178" cy="200" r="2.6" fill="var(--silver)" stroke="none"/><circle cx="178" cy="228" r="2.6" fill="var(--silver)" stroke="none"/><circle cx="178" cy="256" r="2.6" fill="var(--silver)" stroke="none"/><circle cx="178" cy="284" r="2.6" fill="var(--silver)" stroke="none"/><circle cx="178" cy="312" r="2.6" fill="var(--silver)" stroke="none"/>
+        <path d="M150 376l-18 5h18zM206 376l18 5h-18z" fill="var(--wick)"/>
+        <path d="M162 192L128 222L138 238L170 214Z" fill="var(--wick)"/>
+        <circle cx="132" cy="236" r="8.5" fill="var(--skin)"/>
+        <path d="M216 238l9-6 7 12-9 6z" fill="var(--rubric)"/>
+        <circle cx="228" cy="252" r="8.5" fill="var(--skin)"/>
+        <path d="M232 238l10-4 6 9-8 7-9-4z" fill="var(--silver)"/>
+        <circle cx="178" cy="142" r="21" fill="var(--silver)"/>
+        <circle cx="178" cy="142" r="14" stroke="var(--ink-soft)" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <path d="M158 100C156 74 168 64 178 64C190 64 200 74 198 100Z" fill="var(--wick)"/>
+        <ellipse cx="178" cy="98" rx="17" ry="24" fill="var(--skin)"/>
+        <path d="M161 92C160 78 168 70 178 70C188 70 196 78 195 92C190 84 184 82 178 90C172 82 166 84 161 92Z" fill="var(--wick)"/>
+        <path d="M165 92l8 4M191 92l-8 4" stroke-width="2.6"/>
+        <path d="M167 100h6M183 100h6" stroke-width="2"/>
+        <path d="M178 99l-3 10h4" stroke-width="1.6"/>
+        <path d="M163 104q2 7 5 11M193 104q-2 7-5 11" stroke-width="1.4" stroke="var(--ink-soft)"/>
+        <path d="M168 117Q178 123 188 117L178 150Z" fill="var(--wick)"/>
+        <path d="M167 115Q173 110 178 113Q184 110 191 109" stroke-width="2"/>
+      </svg>
+    </figure>
+    <div class="sheet-text">
+      <dl class="facts">
+        <dt>Class</dt><dd>Lord · negates</dd>
+        <dt>Torches</dt><dd>One in, one out</dd>
+      </dl>
+      <section class="field">
+        <h3>The rule</h3>
+        <p class="rule drop">Bring me fire and I snuff it. Bring me darkness and I light it, out of pure spite. Whatever you carry in, you carry the opposite out.</p>
+      </section>
+      <section class="field">
+        <h3>Truth table</h3>
+        <table class="truth">
+          <caption class="vh">NOT: output for each input torch</caption>
+          <thead><tr><th scope="col">In</th><th scope="col">Out</th></tr></thead>
+          <tbody>
+            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="field">
+        <h3>Personality</h3>
+        <p>Contrary to the bone: he says no before you finish asking, and yes if you ask for no. He never schemes and never makes exceptions, which makes the most spiteful man in the realm also its most reliable. Smirks whenever a lit torch walks up his road.</p>
+      </section>
+      <section class="field">
+        <h3>Look</h3>
+        <p>Tall and gaunt, his black cloak falling from the shoulders in a hard triangle, with a round white ruff at the throat: the NOT symbol worn as a costume. Pale face, pointed beard, a long snuffer in one hand and a flint in the other. Colors: black, rubric-red lining, cold silver.</p>
+      </section>
+    </div>
+  </article>
+
+  <div class="flourish" aria-hidden="true">❦</div>
+
+  <!-- AND -->
+  <article class="sheet" id="and" aria-labelledby="and-name">
+    <header class="sheet-head">
+      <p class="gate">Gate · AND</p>
+      <h2 id="and-name">Brother Bothwell</h2>
+      <p class="title">Prior of the Abbey of Concord</p>
+    </header>
+    <figure class="portrait" data-portrait="and">
+      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-and-title">
+        <title id="portrait-and-title">Brother Bothwell, a round-backed monk in a brown habit and spectacles, counting two lit torches before lighting the third</title>
+        <ellipse cx="184" cy="378" rx="84" ry="8" fill="var(--vignette)" stroke="none"/>
+        <circle class="glow" cx="32" cy="116" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="28.5" y="152" width="7" height="258" fill="var(--habit)"/><path d="M22 132H42L38.5 154H25.5Z" fill="var(--wool)"/><path d="M23.5 140.8H40.5M24.5 148.5H39.5" stroke-width="1.5"/><g transform="translate(32 132)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <circle class="glow" cx="72" cy="170" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="68.5" y="206" width="7" height="204" fill="var(--habit)"/><path d="M62 186H82L78.5 208H65.5Z" fill="var(--wool)"/><path d="M63.5 194.8H80.5M64.5 202.5H79.5" stroke-width="1.5"/><g transform="translate(72 186)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <circle class="glow" cx="272" cy="130" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="268.5" y="166" width="7" height="244" fill="var(--habit)"/><path d="M262 146H282L278.5 168H265.5Z" fill="var(--wool)"/><path d="M263.5 154.8H280.5M264.5 162.5H279.5" stroke-width="1.5"/><g transform="translate(272 146)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <path d="M128 134C126 100 146 86 162 86C178 86 198 100 196 134L200 182L124 182Z" fill="var(--habit)"/>
+        <path d="M114 178V376H180C232 376 254 332 254 276C254 218 226 178 180 178Z" fill="var(--habit)"/>
+        <path d="M152 232q-4 70 2 140M206 238q8 66 0 134" stroke-width="1.5"/>
+        <g transform="rotate(-8 222 252)"><rect x="200" y="224" width="44" height="56" rx="3" fill="var(--parchment)"/><rect x="205" y="229" width="34" height="46" stroke="var(--gold)" stroke-width="2"/><circle cx="222" cy="252" r="5" fill="var(--gold)"/></g>
+        <path d="M214 196C240 210 250 244 242 274L224 268C230 248 224 226 206 212Z" fill="var(--habit)"/>
+        <circle cx="233" cy="274" r="8" fill="var(--skin)"/>
+        <path d="M114 278Q182 292 254 276" stroke-width="8"/><path d="M114 278Q182 292 254 276" stroke="var(--wool)" stroke-width="3.5"/>
+        <path d="M128 284L124 336" stroke-width="8"/><path d="M128 284L124 336" stroke="var(--wool)" stroke-width="3.5"/>
+        <circle cx="127" cy="302" r="4.8" fill="var(--wool)"/><circle cx="125" cy="320" r="4.8" fill="var(--wool)"/>
+        <path d="M116 206L92 224L102 244L118 238Z" fill="var(--habit)"/>
+        <path d="M92 222v-14" stroke-width="8.5"/><path d="M92 222v-14" stroke="var(--skin)" stroke-width="4"/>
+        <path d="M100 221v-12" stroke-width="8.5"/><path d="M100 221v-12" stroke="var(--skin)" stroke-width="4"/>
+        <circle cx="97" cy="228" r="8.5" fill="var(--skin)"/>
+        <path d="M110 194C112 168 136 158 162 158C190 158 214 168 222 192C196 212 136 214 110 194Z" fill="var(--habit)"/>
+        <path d="M136 198q26 9 56 0" stroke-width="1.5"/>
+        <circle cx="162" cy="128" r="27" fill="var(--skin)"/>
+        <path d="M135 128C135 116 146 110 162 110C178 110 189 116 189 128C182 120 174 118 162 118C150 118 142 120 135 128Z" fill="var(--habit-grey)"/>
+        <circle cx="152" cy="132" r="7.5"/><circle cx="172" cy="132" r="7.5"/>
+        <path d="M159.5 132h5" stroke-width="2"/>
+        <circle cx="149" cy="133" r="2.2" fill="var(--ink)" stroke="none"/>
+        <circle cx="169" cy="133" r="2.2" fill="var(--ink)" stroke="none"/>
+        <path d="M162 136q-4 6 1 8" stroke-width="1.6"/>
+        <path d="M155 148h13" stroke-width="2"/>
+      </svg>
+    </figure>
+    <div class="sheet-text">
+      <dl class="facts">
+        <dt>Class</dt><dd>Monk · combines</dd>
+        <dt>Torches</dt><dd>Two in, one out</dd>
+      </dl>
+      <section class="field">
+        <h3>The rule</h3>
+        <p class="rule drop">Only when both of you arrive lit will I light the torch that leaves. One dark torch is dissent, and dissent means no.</p>
+      </section>
+      <section class="field">
+        <h3>Truth table</h3>
+        <table class="truth">
+          <caption class="vh">AND: output for each pair of input torches</caption>
+          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
+          <tbody>
+            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
+            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="field">
+        <h3>Personality</h3>
+        <p>Patient, exacting and a little pedantic. He will not be hurried, and a majority of one does not move him; he counts both arrivals twice before he nods. Argues amiably with Brother Orrin at chapter every morning.</p>
+      </section>
+      <section class="field">
+        <h3>Look</h3>
+        <p>Round-backed and solid: a brown habit and heavy cowl give him the flat-fronted, rounded D of the AND symbol. Tonsure, spectacles, a rope girdle tied in two knots, a ledger under one arm. Colors: habit brown, cream, a touch of gold leaf on the ledger.</p>
+      </section>
+    </div>
+  </article>
+
+  <div class="flourish" aria-hidden="true">❦</div>
+
+  <!-- OR -->
+  <article class="sheet" id="or" aria-labelledby="or-name">
+    <header class="sheet-head">
+      <p class="gate">Gate · OR</p>
+      <h2 id="or-name">Brother Orrin</h2>
+      <p class="title">Almoner of Eithermere Priory</p>
+    </header>
+    <figure class="portrait" data-portrait="or">
+      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-or-title">
+        <title id="portrait-or-title">Brother Orrin, a lanky monk in a pointed grey cowl, lighting the outgoing torch from the one lit arrival while the other stays dark</title>
+        <ellipse cx="150" cy="378" rx="84" ry="8" fill="var(--vignette)" stroke="none"/>
+        <circle class="glow" cx="34" cy="160" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="30.5" y="196" width="7" height="214" fill="var(--habit)"/><path d="M24 176H44L40.5 198H27.5Z" fill="var(--wool)"/><path d="M25.5 184.8H42.5M26.5 192.5H41.5" stroke-width="1.5"/><g transform="translate(34 176)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <rect x="262.5" y="220" width="7" height="190" fill="var(--habit)"/><path d="M256 200H276L272.5 222H259.5Z" fill="var(--wool)"/><path d="M257.5 208.8H274.5M258.5 216.5H273.5" stroke-width="1.5"/><path d="M256 201Q261 195 266 199Q271 194 276 201L274.5 206L269 204L264 207L257.5 205Z" fill="var(--wick)"/><path class="smoke" d="M266 196c-7 -8 6 -13 0 -21c-5 -7 4 -12 0 -20M270 197c5 -7 -3 -11 1 -17" stroke="var(--smoke)" stroke-width="2.2"/>
+        <path d="M150 54C206 112 232 250 228 376Q150 346 72 376C68 250 94 112 150 54Z" fill="var(--habit-grey)"/>
+        <ellipse cx="136" cy="368" rx="10" ry="4.5" fill="var(--skin)"/><ellipse cx="164" cy="368" rx="10" ry="4.5" fill="var(--skin)"/>
+        <path d="M134 172H166L172 354H128Z" fill="var(--lapis)"/>
+        <path d="M104 178Q150 204 196 178" stroke-width="2"/>
+        <path d="M80 246Q150 260 220 246" stroke-width="8"/><path d="M80 246Q150 260 220 246" stroke="var(--wool)" stroke-width="3.5"/>
+        <path d="M90 252C80 270 82 292 96 294C110 292 112 270 102 252Z" fill="var(--wool)"/>
+        <path d="M89 254h14M96 254l-4 8M96 254l4 8" stroke-width="1.5"/>
+        <path d="M206 252v10" stroke-width="2"/>
+        <circle class="glow" cx="206" cy="274" r="18" fill="var(--flame-glow)" stroke="none"/>
+        <rect x="197" y="262" width="18" height="24" rx="2" fill="var(--flame-glow)"/>
+        <g transform="translate(206 282) scale(0.4)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <path d="M195 262l11-7 11 7z" fill="var(--gold)"/>
+        <path d="M196 286h20" stroke-width="3"/>
+        <circle class="glow" cx="50" cy="139" r="30.6" fill="var(--flame-glow)" stroke="none"/><g transform="rotate(-30 100 240)"><rect x="96.5" y="160" width="7" height="122" fill="var(--habit)"/><path d="M90 140H110L106.5 162H93.5Z" fill="var(--wool)"/><path d="M91.5 148.8H108.5M92.5 156.5H107.5" stroke-width="1.5"/></g><g transform="translate(50 153.4) scale(0.9)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <path d="M112 176C96 196 90 222 92 244L110 246C110 226 116 204 126 190Z" fill="var(--habit-grey)"/>
+        <circle cx="100" cy="240" r="8.5" fill="var(--skin)"/>
+        <path d="M196 176C214 186 230 200 238 214L226 228C214 216 202 208 188 204Z" fill="var(--habit-grey)"/>
+        <ellipse cx="238" cy="222" rx="7" ry="10" transform="rotate(-30 238 222)" fill="var(--skin)"/>
+        <ellipse cx="150" cy="128" rx="25" ry="30" fill="var(--wick)"/>
+        <ellipse cx="150" cy="134" rx="19" ry="23" fill="var(--skin)"/>
+        <path d="M139 130q4-4 8 0M153 130q4-4 8 0" stroke-width="2"/>
+        <path d="M150 134q-3 6 1 7" stroke-width="1.6"/>
+        <circle cx="138" cy="142" r="4" fill="var(--flame-glow)" stroke="none"/><circle cx="162" cy="142" r="4" fill="var(--flame-glow)" stroke="none"/>
+        <path d="M141 145q9 8 18 0" stroke-width="2"/>
+        <path d="M188 100V82l12-4v18" stroke="var(--gold)" stroke-width="2"/><circle cx="185" cy="100" r="3.5" fill="var(--gold)" stroke="none"/><circle cx="197" cy="96" r="3.5" fill="var(--gold)" stroke="none"/>
+      </svg>
+    </figure>
+    <div class="sheet-text">
+      <dl class="facts">
+        <dt>Class</dt><dd>Monk · combines</dd>
+        <dt>Torches</dt><dd>Two in, one out</dd>
+      </dl>
+      <section class="field">
+        <h3>The rule</h3>
+        <p class="rule drop">If even one of you arrives lit, the torch that leaves is lit. Only two dark torches send a dark one on.</p>
+      </section>
+      <section class="field">
+        <h3>Truth table</h3>
+        <table class="truth">
+          <caption class="vh">OR: output for each pair of input torches</caption>
+          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
+          <tbody>
+            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
+            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="field">
+        <h3>Personality</h3>
+        <p>Warm, generous and easily pleased: one flame is reason enough to celebrate. He hums while he works and is forever giving away his supper. Thinks Brother Bothwell far too strict, and tells him so, kindly.</p>
+      </section>
+      <section class="field">
+        <h3>Look</h3>
+        <p>Lanky and light on his feet; a pointed cowl and a habit that sweeps back in a curve give him the shield-like outline of the OR symbol. Grey habit, lapis-blue scapular, an alms bag, and a small lantern at his belt that is always lit. Colors: dove grey, lapis, candle yellow.</p>
+      </section>
+    </div>
+  </article>
+
+  <div class="flourish" aria-hidden="true">❦</div>
+
+  <!-- NAND -->
+  <article class="sheet" id="nand" aria-labelledby="nand-name">
+    <header class="sheet-head">
+      <p class="gate">Gate · NAND</p>
+      <h2 id="nand-name">Count Nandric</h2>
+      <p class="title">Count of Neverboth</p>
+    </header>
+    <figure class="portrait" data-portrait="nand">
+      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-nand-title">
+        <title id="portrait-nand-title">Count Nandric, stout in a wine-red surcoat with a gold ring brooch, snuffing the outgoing torch while his small brown monk nods at two lit torches</title>
+        <ellipse cx="170" cy="378" rx="110" ry="8" fill="var(--vignette)" stroke="none"/>
+        <circle class="glow" cx="24" cy="104" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="20.5" y="140" width="7" height="270" fill="var(--habit)"/><path d="M14 120H34L30.5 142H17.5Z" fill="var(--wool)"/><path d="M15.5 128.8H32.5M16.5 136.5H31.5" stroke-width="1.5"/><g transform="translate(24 120)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <circle class="glow" cx="56" cy="154" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="52.5" y="190" width="7" height="220" fill="var(--habit)"/><path d="M46 170H66L62.5 192H49.5Z" fill="var(--wool)"/><path d="M47.5 178.8H64.5M48.5 186.5H63.5" stroke-width="1.5"/><g transform="translate(56 170)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <rect x="268.5" y="200" width="7" height="210" fill="var(--habit)"/><path d="M262 180H282L278.5 202H265.5Z" fill="var(--wool)"/><path d="M263.5 188.8H280.5M264.5 196.5H279.5" stroke-width="1.5"/><path d="M262 181Q267 175 272 179Q277 174 282 181L280.5 186L275 184L270 187L263.5 185Z" fill="var(--wick)"/><path class="smoke" d="M272 176c-7 -8 6 -13 0 -21c-5 -7 4 -12 0 -20M276 177c5 -7 -3 -11 1 -17" stroke="var(--smoke)" stroke-width="2.2"/>
+        <path d="M86 176C84 150 96 140 104 140C114 140 126 150 124 176L128 204H82Z" fill="var(--habit)"/>
+        <path d="M80 200V350H118C146 350 156 316 156 282C156 232 140 200 118 200Z" fill="var(--habit)"/>
+        <path d="M78 210C80 194 94 188 106 188C122 188 136 194 140 208C124 220 92 222 78 210Z" fill="var(--habit)"/>
+        <g transform="rotate(-14 104 168)"><circle cx="104" cy="168" r="19" fill="var(--skin)"/><path d="M85 168C85 158 92 153 104 153C116 153 123 158 123 168C118 162 112 160 104 160C96 160 90 162 85 168Z" fill="var(--habit-grey)"/><path d="M95 171q3 3 6 0M107 171q3 3 6 0" stroke-width="1.8"/><path d="M98 179q6 4 12 0" stroke-width="1.8"/></g>
+        <path d="M88 138q12-7 24 0M92 130q8-5 16 0" stroke-width="1.5" stroke="var(--ink-soft)"/>
+        <path d="M78 236Q92 228 106 236V262Q92 254 78 260Z" fill="var(--parchment)"/>
+        <path d="M106 236Q120 228 134 236V260Q120 254 106 262Z" fill="var(--parchment)"/>
+        <path d="M84 242h16M84 248h16M112 242h16M112 248h16M112 254h12" stroke-width="1" stroke="var(--ink-soft)"/>
+        <rect x="85" y="251" width="6" height="6" fill="var(--gold)" stroke="none"/>
+        <circle cx="80" cy="262" r="6" fill="var(--skin)"/><circle cx="132" cy="262" r="6" fill="var(--skin)"/>
+        <path d="M146 176V376H198C242 376 258 332 258 278C258 218 238 176 198 176Z" fill="var(--royal)"/>
+        <path d="M152 184V368H198C226 368 244 352 250 330" stroke="var(--gold)" stroke-width="3.5"/>
+        <circle cx="216" cy="232" r="13" stroke-width="9"/><circle cx="216" cy="232" r="13" stroke="var(--gold)" stroke-width="5"/>
+        <path d="M236 196C256 192 266 182 270 172L282 180C276 198 260 212 242 218Z" fill="var(--royal)"/>
+        <path d="M269 174l12 8" stroke="var(--gold)" stroke-width="4"/>
+        <ellipse cx="272" cy="176" rx="12" ry="8" fill="var(--skin)"/>
+        <path d="M266 174v6M272 173v7M278 174v6" stroke-width="1.2"/>
+        <ellipse cx="200" cy="180" rx="40" ry="11" fill="var(--gold-soft)"/>
+        <circle cx="200" cy="142" r="27" fill="var(--skin)"/>
+        <path d="M173 142C171 118 184 112 200 112C216 112 229 118 227 142C222 128 212 124 200 124C188 124 178 128 173 142Z" fill="var(--habit)"/>
+        <path d="M178 122l2-16 8 8 12-14 12 14 8-8 2 16z" fill="var(--gold)"/>
+        <path d="M184 132l10 3M215 132l-10 3" stroke-width="2.4"/>
+        <path d="M184 139h11M202 139h11" stroke-width="2.4"/>
+        <circle cx="188" cy="143" r="2.2" fill="var(--ink)" stroke="none"/>
+        <circle cx="206" cy="143" r="2.2" fill="var(--ink)" stroke="none"/>
+        <path d="M199 144q-6 8 1 10" stroke-width="1.8"/>
+        <path d="M186 158Q193 152 200 156Q207 152 214 158Q207 156 200 160Q193 156 186 158Z" fill="var(--habit)"/>
+        <path d="M190 168q10 5 20 0" stroke-width="1.5"/>
+      </svg>
+    </figure>
+    <div class="sheet-text">
+      <dl class="facts">
+        <dt>Class</dt><dd>Lord · negates, with a monk of Concord (AND) at court</dd>
+        <dt>Torches</dt><dd>Two in, one out</dd>
+      </dl>
+      <section class="field">
+        <h3>The rule</h3>
+        <p class="rule drop">My monk weighs the torches as the Abbey of Concord teaches; then I overturn him. Two lit torches leave dark. Anything less leaves lit.</p>
+      </section>
+      <section class="field">
+        <h3>Truth table</h3>
+        <table class="truth">
+          <caption class="vh">NAND: output for each pair of input torches</caption>
+          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
+          <tbody>
+            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
+            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="field">
+        <h3>Personality</h3>
+        <p>Suspicious of agreement: when everyone concurs he smells a plot and overturns it. In every other case he is easygoing and open-handed, so most torches leave his hall lit. Boasts that his house alone could govern the realm without any other gate, and, irritatingly, he is right.</p>
+      </section>
+      <section class="field">
+        <h3>Look</h3>
+        <p>Stout, in a rounded surcoat that echoes the AND monk beside him, with a large gold ring brooch at the breast: the bubble of negation. A small brown-robed Concord monk stands at his elbow with an open ledger, so the sprite is a pair, lord in front and monk half a step behind. Colors: wine red, gold trim, habit brown.</p>
+      </section>
+    </div>
+  </article>
+
+  <div class="flourish" aria-hidden="true">❦</div>
+
+  <!-- NOR -->
+  <article class="sheet" id="nor" aria-labelledby="nor-name">
+    <header class="sheet-head">
+      <p class="gate">Gate · NOR</p>
+      <h2 id="nor-name">Lady Norwenna</h2>
+      <p class="title">Margravine of Neithermoor</p>
+    </header>
+    <figure class="portrait" data-portrait="nor">
+      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-nor-title">
+        <title id="portrait-nor-title">Lady Norwenna, tall in a midnight-blue gown with a round silver clasp, lighting the outgoing torch because both arriving torches are dark</title>
+        <ellipse cx="176" cy="380" rx="104" ry="8" fill="var(--vignette)" stroke="none"/>
+        <path d="M140 38A15 15 0 1 0 152 62A12 12 0 1 1 140 38Z" fill="var(--silver)"/>
+        <rect x="20.5" y="156" width="7" height="254" fill="var(--habit)"/><path d="M14 136H34L30.5 158H17.5Z" fill="var(--wool)"/><path d="M15.5 144.8H32.5M16.5 152.5H31.5" stroke-width="1.5"/><path d="M14 137Q19 131 24 135Q29 130 34 137L32.5 142L27 140L22 143L15.5 141Z" fill="var(--wick)"/><path class="smoke" d="M24 132c-7 -8 6 -13 0 -21c-5 -7 4 -12 0 -20M28 133c5 -7 -3 -11 1 -17" stroke="var(--smoke)" stroke-width="2.2"/>
+        <rect x="52.5" y="212" width="7" height="198" fill="var(--habit)"/><path d="M46 192H66L62.5 214H49.5Z" fill="var(--wool)"/><path d="M47.5 200.8H64.5M48.5 208.5H63.5" stroke-width="1.5"/><path d="M46 193Q51 187 56 191Q61 186 66 193L64.5 198L59 196L54 199L47.5 197Z" fill="var(--wick)"/><path class="smoke" d="M56 188c-7 -8 6 -13 0 -21c-5 -7 4 -12 0 -20M60 189c5 -7 -3 -11 1 -17" stroke="var(--smoke)" stroke-width="2.2"/>
+        <circle class="glow" cx="264" cy="100" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="260.5" y="136" width="7" height="164" fill="var(--habit)"/><path d="M254 116H274L270.5 138H257.5Z" fill="var(--wool)"/><path d="M255.5 124.8H272.5M256.5 132.5H271.5" stroke-width="1.5"/><g transform="translate(264 116)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
+        <path d="M104 152C132 178 146 252 144 346Q104 332 64 346C62 252 76 178 104 152Z" fill="var(--habit-grey)"/>
+        <ellipse cx="104" cy="196" rx="15" ry="18" fill="var(--wick)"/><ellipse cx="104" cy="200" rx="11" ry="14" fill="var(--skin)"/>
+        <circle cx="99" cy="198" r="1.8" fill="var(--ink)" stroke="none"/>
+        <circle cx="109" cy="198" r="1.8" fill="var(--ink)" stroke="none"/>
+        <path d="M100 207q4 2 8 0" stroke-width="1.5"/>
+        <path d="M96 226H112L115 334H93Z" fill="var(--lapis)"/>
+        <path d="M80 226C72 240 70 254 74 264L88 262C86 252 88 240 94 230Z" fill="var(--habit-grey)"/>
+        <circle cx="80" cy="266" r="6" fill="var(--skin)"/>
+        <path d="M80 271v5" stroke-width="2"/>
+        <rect x="71" y="276" width="18" height="24" rx="2" fill="var(--wick)"/>
+        <path d="M69 276l11-7 11 7z" fill="var(--silver)"/>
+        <path d="M70 300h20" stroke-width="3"/>
+        <path d="M168 136C166 104 180 94 192 94C204 94 218 104 216 136L224 186H160Z" fill="var(--lapis)"/>
+        <rect x="186" y="150" width="12" height="18" fill="var(--skin)"/>
+        <path d="M192 168C240 220 258 300 264 380Q192 352 120 380C126 300 144 220 192 168Z" fill="var(--night)"/>
+        <path d="M123 376Q192 350 261 376" stroke="var(--lapis)" stroke-width="3"/>
+        <path d="M176 284q-6 46-10 82M208 284q6 46 12 80" stroke-width="1.5"/>
+        <path d="M142 262Q192 276 242 262" stroke-width="7.5"/><path d="M142 262Q192 276 242 262" stroke="var(--silver)" stroke-width="3"/>
+        <path d="M240 232C246 262 240 290 228 304C232 278 230 256 226 240Z" fill="var(--night)"/>
+        <path d="M206 184C226 198 244 214 254 228L246 240C232 228 214 214 200 204Z" fill="var(--night)"/>
+        <circle cx="262" cy="236" r="8.5" fill="var(--rubric)"/>
+        <ellipse cx="192" cy="134" rx="16" ry="21" fill="var(--skin)"/>
+        <path d="M176 121Q192 113 208 121" stroke-width="7"/><path d="M176 121Q192 113 208 121" stroke="var(--silver)" stroke-width="2.5"/>
+        <path d="M182 128q4-2 8 0M194 128q4-2 8 0" stroke-width="1.5"/>
+        <path d="M183 133h6M195 133h6" stroke-width="2"/>
+        <circle cx="186" cy="135.5" r="1.6" fill="var(--ink)" stroke="none"/>
+        <circle cx="198" cy="135.5" r="1.6" fill="var(--ink)" stroke="none"/>
+        <path d="M192 136l-2 8h3" stroke-width="1.5"/>
+        <path d="M187 147h10" stroke-width="1.8"/>
+        <circle cx="192" cy="170" r="10" stroke-width="9"/><circle cx="192" cy="170" r="10" stroke="var(--silver)" stroke-width="5"/>
+      </svg>
+    </figure>
+    <div class="sheet-text">
+      <dl class="facts">
+        <dt>Class</dt><dd>Lord · negates, with a monk of Eithermere (OR) at court</dd>
+        <dt>Torches</dt><dd>Two in, one out</dd>
+      </dl>
+      <section class="field">
+        <h3>The rule</h3>
+        <p class="rule drop">My almoner would light the way if either torch were lit. I forbid it. The torch that leaves burns only when both arrive dark.</p>
+      </section>
+      <section class="field">
+        <h3>Truth table</h3>
+        <table class="truth">
+          <caption class="vh">NOR: output for each pair of input torches</caption>
+          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
+          <tbody>
+            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
+            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
+            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="field">
+        <h3>Personality</h3>
+        <p>Cold, courteous and austere, a lover of the long night. She trusts darkness and takes any flame as a provocation, so only two dark torches please her. Like Count Nandric she could rule the whole realm with her house alone; unlike him, she would never say so aloud.</p>
+      </section>
+      <section class="field">
+        <h3>Look</h3>
+        <p>Tall and still, in a midnight-blue gown whose curved, pointed train echoes the OR shape, with a round silver clasp at her collar. A grey Eithermere monk follows her carrying a lantern she keeps dark. Colors: midnight blue, silver, lapis, one rubric-red glove.</p>
+      </section>
+    </div>
+  </article>
+
+  <footer class="colophon">
+    <div class="flourish" aria-hidden="true">❦</div>
+    <p>Working document · characters only · portraits to follow</p>
+  </footer>
+
+</main>
+</body>
+</html>

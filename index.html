@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Lords &amp; Logicians · Prototype</title>
+  <meta name="description" content="Playable prototype of Lords & Logicians: send Hob Wickfoot down the road past Lord Gainsay to light the beacon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js"
+      }
+    }
+  </script>
+</head>
+<body>
+<main class="play">
+
+  <header class="masthead">
+    <p class="kicker">Prototype · The road to Contrary Keep <span aria-hidden="true">·</span> <a class="doc-link" href="design/">Design notes</a></p>
+    <h1>Lords <span class="amp">&amp;</span> Logicians</h1>
+    <p class="goal"><span class="goal-label">Goal<span class="vh">:</span></span> Light the beacon</p>
+  </header>
+
+  <div class="stage" id="stage" role="img" aria-label="An isometric board at dusk. A road runs from Hob's village past Lord Gainsay's gatehouse to an unlit beacon tower.">
+    <noscript><p class="stage-msg">The board needs JavaScript to be drawn.</p></noscript>
+  </div>
+
+  <section class="controls" aria-label="Controls">
+    <fieldset class="torch">
+      <legend>Hob’s torch</legend>
+      <div class="seg">
+        <input type="radio" name="torch" id="torch-lit" value="1" checked>
+        <label for="torch-lit"><span class="pip pip-lit" aria-hidden="true"></span>Lit (1)</label>
+        <input type="radio" name="torch" id="torch-dark" value="0">
+        <label for="torch-dark"><span class="pip pip-dark" aria-hidden="true"></span>Dark (0)</label>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button type="button" class="btn btn-primary" id="send">Send</button>
+      <button type="button" class="btn" id="reset">Reset</button>
+    </div>
+
+    <div class="log">
+      <p class="readout" id="readout"></p>
+      <p class="status" id="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+</main>
+<script>
+  // Browsers without import maps can't load the board; say so plainly.
+  if (!(window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))) {
+    var stage = document.getElementById('stage');
+    stage.removeAttribute('role');
+    stage.removeAttribute('aria-label');
+    stage.innerHTML = '<p class="stage-msg">This browser is too old to draw the board. Try a current Chrome, Firefox, Safari or Edge.</p>';
+  }
+</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
