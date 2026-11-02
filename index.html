@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <title>Lords &amp; Logicians · Prototype</title>
   <meta name="description" content="Playable prototype of Lords & Logicians: send Hob Wickfoot down the road past Lord Gainsay to light the beacon.">
@@ -32,19 +32,25 @@
   </div>
 
   <section class="controls" aria-label="Controls">
-    <fieldset class="torch">
-      <legend>Hob’s torch</legend>
-      <div class="seg">
-        <input type="radio" name="torch" id="torch-lit" value="1" checked>
-        <label for="torch-lit"><span class="pip pip-lit" aria-hidden="true"></span>Lit (1)</label>
-        <input type="radio" name="torch" id="torch-dark" value="0">
-        <label for="torch-dark"><span class="pip pip-dark" aria-hidden="true"></span>Dark (0)</label>
-      </div>
-    </fieldset>
+    <!-- on desktop .bar is display: contents; on phones it is the nav bar over the board -->
+    <div class="bar">
+      <fieldset class="torch">
+        <legend>Hob’s torch</legend>
+        <div class="seg">
+          <input type="radio" name="torch" id="torch-lit" value="1" checked>
+          <label for="torch-lit"><span class="pip pip-lit" aria-hidden="true"></span>Lit (1)</label>
+          <input type="radio" name="torch" id="torch-dark" value="0">
+          <label for="torch-dark"><span class="pip pip-dark" aria-hidden="true"></span>Dark (0)</label>
+        </div>
+      </fieldset>
 
-    <div class="actions">
-      <button type="button" class="btn btn-primary" id="send">Send</button>
-      <button type="button" class="btn" id="reset">Reset</button>
+      <!-- phones only (the masthead goal is hidden there), so the goal is read once -->
+      <p class="bar-goal"><span><span class="goal-label">Goal<span class="vh">:</span></span> Light the beacon</span></p>
+
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="send">Send</button>
+        <button type="button" class="btn" id="reset">Reset</button>
+      </div>
     </div>
 
     <div class="log">

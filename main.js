@@ -98,10 +98,13 @@ async function start() {
 
   // Fit the frustum to everything in the board group (static scenery; add moving pieces to
   // the scene, not the board, so they don't change the fit).
+  // `inset` (CSS px from each edge of the stage) is the part the board must stay clear of:
+  // on phones the controls bar and caption over the bottom, and the notches. All 0 on desktop.
   const box = new THREE.Box3();
   const v = new THREE.Vector3();
   const MARGIN = 1.05;
-  function fitCamera(aspect) {
+  const NO_INSET = { top: 0, right: 0, bottom: 0, left: 0 };
+  function fitCamera(w, h, inset = NO_INSET) {
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
     const fit = (o) => {
       if (!o.isMesh) return;
@@ -118,17 +121,42 @@ async function start() {
     board.traverseVisible(fit);
     beacon.bounds.updateWorldMatrix(true, false);
     fit(beacon.bounds); // the static beacon, lit flame included (hidden box)
+    // fit the board into the free area, then widen the frustum by the insets at the same scale
+    let aw = w - inset.left - inset.right;
+    let ah = h - inset.top - inset.bottom;
+    if (aw < w * 0.3 || ah < h * 0.3) { inset = NO_INSET; aw = w; ah = h; } // overlay too big: ignore it
+    const aspect = aw / ah;
     let halfW = ((maxX - minX) / 2) * MARGIN;
     let halfH = ((maxY - minY) / 2) * MARGIN;
     if (halfW / halfH > aspect) halfH = halfW / aspect;
     else halfW = halfH * aspect;
+    const perPx = (2 * halfW) / aw; // world units per CSS pixel
     const cx = (minX + maxX) / 2;
     const cy = (minY + maxY) / 2;
-    camera.left = cx - halfW;
-    camera.right = cx + halfW;
-    camera.top = cy + halfH;
-    camera.bottom = cy - halfH;
+    camera.left = cx - halfW - inset.left * perPx;
+    camera.right = cx + halfW + inset.right * perPx;
+    camera.top = cy + halfH + inset.top * perPx;
+    camera.bottom = cy - halfH - inset.bottom * perPx;
     camera.updateProjectionMatrix();
+  }
+
+  // On phones style.css floats .controls over the bottom of the stage and pads the stage by the
+  // safe areas; measure both. On desktop .controls sits below the stage and the padding is 0.
+  const controls = document.querySelector('.controls');
+  function stageInset() {
+    const cs = getComputedStyle(stage);
+    const inset = {
+      top: parseFloat(cs.paddingTop) || 0,
+      right: parseFloat(cs.paddingRight) || 0,
+      bottom: 0,
+      left: parseFloat(cs.paddingLeft) || 0,
+    };
+    if (controls && getComputedStyle(controls).position !== 'static') {
+      const s = stage.getBoundingClientRect();
+      const c = controls.getBoundingClientRect();
+      if (c.height) inset.bottom = Math.max(0, Math.min(s.bottom, c.bottom) - Math.max(s.top, c.top));
+    }
+    return inset;
   }
 
   function resize() {
@@ -137,10 +165,12 @@ async function start() {
     if (!w || !h) return;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); // follows browser zoom
     renderer.setSize(w, h, false);
-    fitCamera(w / h);
+    fitCamera(w, h, stageInset());
     renderer.render(scene, camera);
   }
-  new ResizeObserver(resize).observe(stage);
+  const resizer = new ResizeObserver(resize);
+  resizer.observe(stage);
+  if (controls) resizer.observe(controls); // the bar and caption can change height
   resize();
 
   // ---- loop, with a per-frame hook: onFrame(fn) calls fn(dt, elapsed) in seconds ----
