@@ -47,7 +47,9 @@ async function start() {
   scene.add(sky);
 
   const moon = new THREE.DirectionalLight('#c5d2f7', 2.3);
-  moon.position.set(-5, 10, -6); // high in the north-west: west and north faces catch it
+  // high in the west-south-west: the tile tops and the south and west faces the camera sees
+  // catch it, and shadows fall away up-screen to the east-north-east
+  moon.position.set(-6, 10, 4);
   moon.castShadow = true;
   moon.shadow.mapSize.set(2048, 2048);
   Object.assign(moon.shadow.camera, { left: -9, right: 9, top: 9, bottom: -9, near: 1, far: 30 });
@@ -79,10 +81,11 @@ async function start() {
   const placeholder = board.getObjectByName('beaconPlaceholder');
   if (placeholder) placeholder.visible = false;
 
-  // ---- camera: fixed isometric view from the south-west, so the road runs left to right ----
+  // ---- camera: fixed view from due south looking north, so the tall board's road runs from
+  // the top of the screen (S) to the bottom (B); screen right is east, screen up is north ----
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 100);
-  const AZIMUTH = THREE.MathUtils.degToRad(-45);      // around the vertical axis
-  const ELEVATION = THREE.MathUtils.degToRad(35.264); // atan(1/√2): classic isometric
+  const AZIMUTH = 0;                              // around the vertical axis: 0 = from the south
+  const ELEVATION = THREE.MathUtils.degToRad(45); // steeper fills a tall screen, shallower keeps pieces tall
   const DISTANCE = 40;
   const target = new THREE.Vector3(0, map.TILE_TOP, 0);
   camera.position.set(

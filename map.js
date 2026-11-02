@@ -10,14 +10,22 @@ import * as THREE from 'three';
 // S  start: Hob's village end of the road
 // N  Lord Gainsay's tile: road with his gatehouse beside it
 // B  beacon tower at the road's end
+// Rows run north (top) to south; the camera looks from the south, so they read top to
+// bottom on screen as written here.
 export const MAP = [
-  '..t.....t.',
-  'S###......',
-  '...#..t...',
-  '.t.N###...',
-  '......#.t.',
-  '..t...##B.',
-  '..........',
+  '.t.S..',
+  '...#.t',
+  '.###..',
+  '.#..t.',
+  '.#....',
+  '.N##.t',
+  't..#..',
+  '.t.#..',
+  '...##.',
+  '.t..#.',
+  '...B#.',
+  't....t',
+  '..t...',
 ];
 
 export const TILE = 1;             // tile pitch, centre to centre (world units)
@@ -40,8 +48,8 @@ const STEPS = [
   { dr: 1, dc: 0 },  // south
   { dr: 0, dc: -1 }, // west
 ];
-// direction the camera looks from (south-west); used to pick sides facing the viewer
-const VIEW_SIDE = new THREE.Vector3(-1, 0, 1).normalize();
+// direction the camera looks from (due south, see main.js); used to pick sides facing the viewer
+const VIEW_SIDE = new THREE.Vector3(0, 0, 1);
 
 const charAt = (row, col) => (MAP[row] && MAP[row][col]) || '';
 const isRoad = (row, col) => ROAD_CHARS.has(charAt(row, col));
@@ -108,7 +116,7 @@ const lordIsCorner = Math.abs(lordIn.dot(lordOut)) < 1e-6;
 /**
  * The free side of the road on N (unit vector, horizontal). On a bend it points away from
  * the incoming leg, beside the outgoing one; the gatehouse fills the inside of the bend.
- * On this map: (0, 0, 1), south of the road where it leaves N eastwards.
+ * On this map: (0, 0, 1), south of the road where it leaves N eastwards (the camera's side).
  */
 export const lordFreeSide = lordIsCorner
   ? lordIn.clone().negate()

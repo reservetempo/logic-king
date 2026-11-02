@@ -4,12 +4,12 @@
 // stray Promise behind to flip a torch or light the beacon later.
 
 import * as THREE from 'three';
-import { path } from './map.js';
+import { path, lordTile } from './map.js';
 import { reducedMotion } from './pieces.js';
 
-const N = 5;                 // path index of the lord's tile
+const N = lordTile.index;    // path index of the lord's tile
 const B = path.length - 1;   // path index of the road's end, under the beacon
-const SPEED = 1.5;           // tiles a second (TILE = 1)
+const SPEED = 1.9;           // tiles a second (TILE = 1)
 const EASE = 0.45;           // seconds to get up to speed, and to stop
 const ROUND = 0.35;          // how far along the road a bend is rounded off
 const STRIDE = 0.1;          // one step, for the bob
