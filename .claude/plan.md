@@ -44,9 +44,53 @@
 
 ## Next
 
-The user wants the game playable on a phone held upright: the board full screen, the road running from the top of the screen to the bottom, and the controls shrunk into a little nav bar. Their answers: a **new tall board everywhere** (desktop too), the bar at the **bottom, over the board**, the bar holds the torch toggle, Send and the **goal line** (no Reset, no Design notes link, no fullscreen button in it), and the full-screen layout is for **phones only** (desktop keeps today's framed layout). Both tasks for this are done (see Done); the shared context above is updated to match.
+**Biblical redesign of the design doc (doc only, the game is not touched).** The user wants the design more biblical and the vibe a bit darker. **The player is God, "the Architect" of the universe**, who decides the fate of faithful servants and uses them to build a machine (the circuit). Lords are gone. Their answers:
+- **New order:** **Monks carry** the torches (the signal; the servants whose fate the Architect decides). **Priests combine** (AND, OR). **High priests negate** (NOT; NAND and NOR each keep a priest at their side and overturn his verdict: NAND keeps the AND priest, NOR keeps the OR priest). Every high priest still wears a small ring, the bubble of negation, and every silhouette still echoes its gate symbol. World rule unchanged: torchbearers walk the roads between gates, **lit torch = 1, dark = 0**.
+- **Bare names:** each sheet's heading is just the gate name, **NOT, AND, OR, NAND, NOR**, with only its rank under it (High priest / Priest); no personal names, no flavor titles. The torch carrier is **"The Bearer"** (a monk). Old names (Hob Wickfoot, Lord Gainsay, Brother Bothwell, Brother Orrin, Count Nandric, Lady Norwenna) disappear from the doc.
+- **Title:** the doc is now **"The Architect"** (was "Lords & Logicians").
+- **3D look** (described in the doc, for a later pass on the game): a **dark toy diorama**, like the Link's Awakening remake (glossy toy-like pieces, chunky bevelled tiles, tilt-shift blur) but at night with Twilight Princess gloom.
+- **"A bit darker"** (not asked; my reading): keep both light and dark modes, but smoke the parchment, deepen the dark mode, and give the writing and portraits a graver tone.
+- **Don't touch the game** (`index.html`, `style.css`, `*.js` at the root): it keeps "Lords & Logicians", Hob and Lord Gainsay until the user asks for a game pass.
 
-(nothing)
+Tasks 1 and 2 touch different files and can run in parallel; 3, 4 and 5 run one at a time after them.
+
+### 1. Rewrite the design doc's words for the new order
+Files: `design/index.html`, text only. Don't change the portrait drawings (tasks 3 and 4 redraw them and their SVG `<title>`s), `design/style.css`, or any game file.
+- Page `<title>` "The Architect · Characters"; meta description to match. Masthead: `h1` "The Architect" (drop the `.amp` span), keep the kicker "Design document · Character list" and the "Play the prototype" link; new subtitle in the same spirit (e.g. "The Book of Servants").
+- Intro (`section.intro`): the Architect of the universe (the player, God) sets each torch and uses these faithful servants to build a machine. Keep the world rule (torchbearers walk the roads between gates, lit = 1, dark = 0). The three orders become **Monks carry** (they never change a torch on the road, only walk), **Priests combine** (weigh two torches and send one on), **High priests negate** (overturn what reaches them; the greater high priests keep a priest at their side and overturn his verdict). Keep the line about silhouettes echoing gate symbols and every high priest wearing a small ring (the bubble of negation). New motto replacing "Lords negate, monks combine." (e.g. "Monks carry, priests weigh, high priests overturn.").
+- Contents nav: "The Bearer", then "NOT", "AND", "OR", "NAND", "NOR", each with its rank in the `<small>`.
+- Each sheet: `h2` is the bare name ("The Bearer", "NOT", "AND", "OR", "NAND", "NOR"); the `.title` line is the rank only ("Monk", "Priest", "High priest"); the `.gate` line must not repeat the gate name (e.g. "The signal" / "A gate"). Facts: Class "Monk · carries", "Priest · combines", "High priest · negates"; keep the Torches lines. Rewrite The rule (first person, grave, biblical cadence), Personality and Look for the new figures. Looks describe vestments whose silhouettes echo the gate symbol: the Bearer a small hooded monk in a rough dark habit with a rope girdle and bare feet, torch high on a long pole (lit: warm halo; dark: charred wick and smoke), stole or hood colors tell individuals apart; NOT a tall gaunt high priest whose black cope falls in a hard triangle, a ring at the throat (the NOT symbol as costume), snuffer and flint; AND a priest with a rounded back and flat front (the D of AND); OR a priest whose cowl or chasuble has the curved, pointed shield of OR; NAND the AND silhouette plus a ring brooch, with the AND priest at his side; NOR the OR silhouette plus a ring clasp, with the OR priest at his side. Darker colors (black, ash grey, oxblood or rubric red, tarnished gold, bone, deep blue), named in words that map onto the palette tokens in `design/style.css`.
+- Colophon: e.g. "Working document · characters only · portraits to follow" can stay or be reworded in the new tone.
+- Tone: darker and graver than before, biblical in cadence (fire, ash, vigil, judgment), but original prose: no quoted scripture. Keep paragraphs about the length they are now.
+- Keep every `id`, `aria-labelledby`, class name and truth-table value as is.
+- Done: no "Lord", "Lady", "Count", "Baron", "peasant", "Hob", "Gainsay", "Bothwell", "Orrin", "Nandric" or "Norwenna" left in the page outside the portraits' SVG `<title>`s; `http://localhost:8000/design/` renders with no console errors.
+
+### 2. Darker page style for the design doc
+Files: `design/style.css` only.
+- "A bit darker", both modes kept: light mode becomes smoked, candle-darkened parchment (deeper, browner page, heavier vignette, darker ink, more tarnished gold); dark mode becomes a deeper, near-black vellum lit by candle gold. Same layout and type (Cinzel, EB Garamond).
+- Keep every existing token name: the portrait SVGs use them through `var(--…)` (the game only copied old values, so it doesn't change). Adjust values as needed.
+- Add a few tokens, with dark-mode values, for the new vestments that tasks 3 and 4 will draw with: `--cope` (near-black), `--ash` (grey), `--oxblood`, `--bone`, `--iron`. Note them in the header comment.
+- Body text and links keep at least WCAG AA contrast in both modes. Check `http://localhost:8000/design/` in light and dark (resize_window `colorScheme`) at desktop width and at 390 px.
+
+### 3. Redraw portraits: The Bearer, AND, OR
+Files: `design/index.html`, only the `<svg>` inside `figure.portrait` of `#torchbearer`, `#and` and `#or`.
+- Draw each figure to match its sheet's Look text (written in task 1; read it first with a targeted grep). The Bearer: small hooded monk with a lit torch high on a long pole. AND: the priest with the rounded back and flat front (D silhouette), counting two lit torches before lighting the third. OR: the priest with the curved pointed OR-shield silhouette, lighting the outgoing torch from the one lit arrival while the other stays dark.
+- Keep the portrait conventions: `viewBox="0 0 300 400"`, `role="img"` and `aria-labelledby` the `<title>` id, ground line and shadow ellipse, colors only through `var(--…)` tokens from `design/style.css` (including the new `--cope`, `--ash`, `--oxblood`, `--bone`, `--iron`), flames built with the `.fl` / `.glow` / `.smoke` classes so they animate (and stop under reduced motion). Look at an existing portrait for the drawing style before starting.
+- Darker, graver mood than the old portraits, but the silhouette must still read as the gate symbol at a glance.
+- Rewrite each `<title>` to describe the new figure.
+- Check all three in light and dark mode, desktop and 390 px.
+
+### 4. Redraw portraits: NOT, NAND, NOR
+Files: `design/index.html`, only the `<svg>` inside `figure.portrait` of `#not`, `#nand` and `#nor`.
+- Same conventions as task 3 (read one of the task 3 portraits first so the cast matches). NOT: the tall gaunt high priest, black cope in a hard triangle, ring at the throat, snuffing an arriving lit torch with a long snuffer. NAND: the AND silhouette with a ring brooch, snuffing the outgoing torch while a small AND priest (drawn like task 3's AND) nods at two lit torches beside him. NOR: the OR silhouette with a ring clasp, lighting the outgoing torch because both arriving torches are dark, a small OR priest beside him. Each high priest's ring must read clearly (it is the negation bubble).
+- Rewrite each `<title>`. Check in light and dark mode, desktop and 390 px.
+
+### 5. Add a "look of the world" section for the 3D game
+Files: `design/index.html` (new section), `design/style.css` (its styles). The game is not touched; this describes the target look for a later pass.
+- Place it after the character sheets, before the colophon, with a link from the contents nav. Heading in the doc's style (e.g. "The Architect's View").
+- Text: a **dark toy diorama**. Like the Link's Awakening remake: glossy, toy-like pieces (painted chess pieces), chunky bevelled tiles with small gaps, soft rounded forms, tilt-shift blur at the top and bottom of the screen. But at night with Twilight Princess gloom: deep blue-black sky, low mist over the grass, desaturated greens and earth, cool moonlight rim light, and the torches and fires as the only warm light, with bloom. The camera is fixed from the south, looking down at 45°: the Architect's gaze from above. The road runs from the top of the screen to the bottom. Gates are small dark chapels or shrines beside the road; the beacon at the road's end is the first lamp of the Architect's machine. Keep it to a few short paragraphs or a short list.
+- Images: an inline SVG scene illustration (a tall stretch of the board at night: bevelled tiles, the road, a small monk with a lit torch, a high priest beside a little chapel, mist, the beacon, blurred top and bottom edges), using the palette tokens; and a small palette strip of swatches for the scene's colors. Light and dark mode must both work (the scene itself can stay night in both).
+- Update the colophon if it says "characters only". Check in light and dark mode, desktop and 390 px.
 
 ## Done
 
