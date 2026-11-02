@@ -37,7 +37,51 @@
 
 ## Next
 
-(nothing)
+The user wants the game playable on a phone held upright: the board full screen, the road running from the top of the screen to the bottom, and the controls shrunk into a little nav bar. Their answers: a **new tall board everywhere** (desktop too), the bar at the **bottom, over the board**, the bar holds the torch toggle, Send and the **goal line** (no Reset, no Design notes link, no fullscreen button in it), and the full-screen layout is for **phones only** (desktop keeps today's framed layout). Task 1 replaces the map and camera details in the shared context above (the old map, the south-west view, path of 13, N = 5, `lordSpot`), so where they differ, the task wins.
+
+### 1. Tall board with the road running top to bottom (map.js, main.js, run.js; pieces.js only if needed)
+
+Replace today's wide map with a tall, narrow one at all screen sizes, and turn the camera so the road starts at the top of the screen (Hob's village) and ends at the bottom (the beacon).
+
+- **New `MAP`** in `map.js`, 6 columns × 13 rows; the rows read top to bottom on screen just as in the text:
+  ```
+  .t.S..
+  ...#.t
+  .###..
+  .#..t.
+  .#....
+  .N##.t
+  t..#..
+  .t.#..
+  ...##.
+  .t..#.
+  ...B#.
+  t....t
+  ..t...
+  ```
+  The road: S (row 0, col 3) south, west along row 2, south down col 1 to N (row 5, col 1), in from the north and out to the east (the same bend as today, so the gatehouse and arch code works as is), east, south down col 3, a jog east, south, and finally west into B (row 10, col 3). B is entered from the side, so the beacon tower stands beside the road's end, not in front of it as seen from the camera. 17 road tiles: N is path index 7, B is 16. Small changes are fine if something doesn't fit (decor in the way of the hut, gatehouse or tower), as long as: one unbroken road from S on the top row to B near the bottom, N a bend in from the north and out to the east, B entered from the east or west, and no road tile touches a road tile that isn't its neighbour on the path (`traceRoad()` throws on forks).
+- **Camera** (`main.js`, the `AZIMUTH`/`ELEVATION` block): from due south (azimuth 0) looking north at the board centre, elevation about 45°. Tune between 40° and 50°: steeper fills a tall screen better, shallower keeps the pieces taller on screen. Screen right = east, screen up = north. Still orthographic, still refit on resize. Update the comment ("view from the south-west, so the road runs left to right").
+- **`VIEW_SIDE`** in `map.js` (the side the camera looks from; used for the start hut and the straight-N case) becomes (0, 0, 1), or derive it from the camera. Update comments that describe the old map or view (for example "On this map: (0, 0, 1)…").
+- **`run.js`:** `const N = 5` becomes `lordTile.index` from `map.js`. Look for any other number tied to the old path.
+- **Lord and Hob at N:** seen from the south, the lord (at `lordSpot`, south-east of the N centre) stands in front of Hob. Make sure Hob, his torch and the snuff and light gestures stay visible. Adjust `lordSpot`'s offsets if needed, as long as the snuffer and flint still reach Hob's torch tip.
+- **Lighting:** the camera now sees the tile tops and south sides. Make sure the board still reads (south faces not flat black, shadows sensible). Move the moon (now high in the north-west at (-5, 10, -6)) if needed and keep its shadow camera covering the whole board.
+- **Run length:** the road is 17 tiles instead of 13. Keep a full run about 12–14 s (nudge `SPEED` if needed), and about 1 s under reduced motion.
+- Desktop layout unchanged (title, framed stage, controls under it). The tall board sits centred in the wide stage with night sky either side; that's expected.
+- Update `README.md` if it describes the board or the camera.
+- **Done when:** the new board shows at desktop size and in a narrow, tall window with the road running top to bottom; both runs work start to finish (Lit → beacon stays dark, Dark → beacon lights), watched live with the preview tab fronted or stepped through `__gates.onFrame`; no console errors or 404s.
+- **Also report:** the final camera angles, `lordSpot`, `lordTile` and `beaconTile` (index and position), `path.length`, the run's duration, and anything changed in `pieces.js`, so the shared context can be updated.
+
+### 2. Full-screen phone layout with a small nav bar (index.html, style.css, a small change in main.js)
+
+On phones the board fills the whole screen and the controls shrink into a slim bar over the bottom of the board. Desktop keeps today's layout, unchanged.
+
+- **Phone** = the existing `@media (max-width: 40rem)` breakpoint, plus short viewports (`max-height: 32rem`) so a phone turned sideways still gets it.
+- **Board:** `#stage` fills the viewport edge to edge: `100dvh` with a `100vh` fallback, no body gutter, no gold double frame or shadow. No page scroll in either direction, `overscroll-behavior: none`. Add `viewport-fit=cover` to the viewport meta and keep the bar and the board clear of notches and the home indicator with `env(safe-area-inset-*)`.
+- **Hidden on phones:** the masthead (kicker with the Design notes link, the title), the "Hob's torch" legend, and Reset. Keep the `h1` for screen readers (visually hidden, like `.vh`) and keep `#reset` in the DOM (run.js wires it). Send already restarts after a run ends.
+- **Nav bar:** slim (about 48–56 px plus the safe area), slightly translucent, in the page's manuscript style (parchment, dark vellum under `prefers-color-scheme: dark`, Cinzel and EB Garamond). It holds the compact Lit/Dark segmented toggle with its pips, Send (primary), and the goal "Light the beacon" in small type. Controls smaller than today's 44 px (about 36 px tall) but easy to tap, with `touch-action: manipulation`. Keep the ids, the radio names and values, and the disabled / `aria-disabled` styling working. Moving markup is fine as long as desktop looks the same, and screen readers must not read the goal twice.
+- **Readout and status** (`#readout`, `#status`): a small caption floating over the board just above the bar, readable on the night sky (for example parchment text with a soft shadow), one or two lines, not a box over the road. Keep `aria-live` on `#status`.
+- **Camera fit** (`main.js`, `fitCamera`/`resize`): on phones the board must not sit under the bar and caption. Fit the board into the part of the stage above the overlay: measure the overlay's height (for example the bar and caption container's height when it is overlaid, 0 on desktop) plus the top safe area, offset the frustum to match, and refit when it changes (observe it too). The desktop fit stays as it is.
+- **Done when:** at 375×812 and 390×844 (preview `resize_window`), the board fills the screen with the road running top to bottom clear of the bar; the bar and caption are readable in light and dark mode; both runs work from the bar (Lit → fail, Dark → win); no page scroll; desktop width looks as before; no console errors.
 
 ## Done
 
