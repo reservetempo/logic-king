@@ -77,7 +77,7 @@ body {
   gap: 0.75rem;
 }
 
-.masthead { text-align: center; }
+.masthead { position: relative; text-align: center; }
 
 .kicker,
 .goal-label,
@@ -92,14 +92,46 @@ body {
 
 .kicker { margin: 0; }
 
-.doc-link {
-  color: inherit;
-  white-space: nowrap;
-  text-decoration: underline 1px var(--gold);
-  text-underline-offset: 0.3em;
+/* small button to the design doc, top right of the masthead (phones: see below) */
+.doc-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 36px;
+  padding: 0 0.75rem;
+  font: 700 0.72rem/1 "Cinzel", serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--parchment-shade);
+  border: 2px solid var(--ink);
 }
-.doc-link:hover { color: var(--ink); text-decoration-color: var(--rubric); }
-.doc-link:focus-visible { outline: 3px solid var(--lapis); outline-offset: 2px; }
+.doc-btn:hover { color: var(--rubric); border-color: var(--rubric); }
+.doc-btn:focus-visible { outline: 3px solid var(--lapis); outline-offset: 2px; }
+
+.doc-icon {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+/* narrow desktops: icon only, so it stays clear of the centred kicker */
+@media (max-width: 46rem) {
+  .doc-btn { justify-content: center; width: 36px; padding: 0; }
+  .doc-btn-label {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+}
 
 h1 {
   margin: 0.05em 0 0;
@@ -365,10 +397,29 @@ h1 .amp { color: var(--rubric); }
   #reset { display: none; }
 
   .masthead h1,
-  .torch legend {
+  .torch legend,
+  .doc-btn-label {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
+
+  /* the design button: an icon-only square in the top-right corner, clear of the notch */
+  .doc-btn {
+    top: max(0.6rem, env(safe-area-inset-top, 0px));
+    right: max(0.6rem, env(safe-area-inset-right, 0px));
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-height: 0;
+    padding: 0;
+    background: var(--parchment);
+    background: color-mix(in srgb, var(--parchment) 88%, transparent);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--frame);
+    box-shadow: 0 0.2rem 0.8rem rgba(6, 9, 22, 0.35);
+  }
+  .doc-icon { width: 1.3rem; height: 1.3rem; }
 
   .stage {
     height: 100vh;
