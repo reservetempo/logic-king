@@ -1,6 +1,7 @@
 /* The Architect: design document
    The words live in design.md and are rendered into <main id="doc"> by index.html,
-   so these styles target plain markdown output (h1–h3, p, ul, ol, blockquote, table, hr, code).
+   so these styles target plain markdown output (h1–h3, p, ul, ol, blockquote, table, hr, code),
+   plus the .model placeholders where viewer.js shows the 3D figures.
    A typewritten, candle-darkened manuscript: everything is set in Courier New, on browned
    parchment by day and near-black vellum by candlelight.
    Palette tokens below are the doc's colors; the game and the 3D work copy values from them.
@@ -229,17 +230,21 @@ ul > li { position: relative; margin: 0 0 0.5rem; padding-left: 1.6em; }
 ul > li::before { content: "†"; position: absolute; left: 0.3em; color: var(--rubric); }
 li > strong:first-child { color: var(--rubric); }
 
-/* the facts under each name: a rubric-ruled box */
-h2 + p + ul {
+/* the facts under each name: a rubric-ruled box (after the 3D figure, where there is one) */
+h2 + p + ul,
+h2 + p + .model + ul {
   margin: 0 0 0.5rem;
   padding: 0.6rem 0.9rem;
   border-left: 3px solid var(--rubric);
   background: var(--parchment-shade);
   line-height: 1.45;
 }
-h2 + p + ul > li { margin: 0.15rem 0; padding-left: 0; }
-h2 + p + ul > li::before { content: none; }
-h2 + p + ul strong {
+h2 + p + ul > li,
+h2 + p + .model + ul > li { margin: 0.15rem 0; padding-left: 0; }
+h2 + p + ul > li::before,
+h2 + p + .model + ul > li::before { content: none; }
+h2 + p + ul strong,
+h2 + p + .model + ul strong {
   margin-right: 0.3em;
   font-size: 0.85em;
   letter-spacing: 0.1em;
@@ -350,6 +355,27 @@ hr + p:last-child {
   color: var(--ink-soft);
 }
 hr + p:last-child em { font-style: normal; }
+
+/* ---------- 3D figures (viewer.js) ---------- */
+
+/* a night diorama in a gilt frame; the canvas is see-through, so this sky shows behind it */
+.model {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 360px;
+  margin: 0 0 1.25rem;
+  overflow: hidden;
+  border: 3px double var(--gold);
+  background: radial-gradient(ellipse 70% 75% at 50% 42%, var(--sky-haze), var(--sky));
+  box-shadow:
+    inset 0 0 2.5rem rgba(0, 0, 0, 0.55),
+    0 0.35rem 1.25rem var(--vignette);
+}
+.model canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.model-note { margin: 0; padding: 1rem; text-align: center; font-size: 0.85rem; color: var(--mist); }
 
 /* ---------- truth tables ---------- */
 

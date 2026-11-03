@@ -7,6 +7,9 @@
   <title>The Architect</title>
   <meta name="description" content="Design document for The Architect, a 2.5D game where the player is God and logic gates are monks, priests and high priests who carry, weigh and overturn torches.">
   <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js" } }
+  </script>
 </head>
 <body>
 <main id="doc" class="leaf" aria-busy="true">
@@ -18,9 +21,9 @@
   // The words live in design.md; this page fetches them and renders the markdown.
   const MARKED = 'https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.esm.js';
 
-  // Modules that need the rendered doc (for example './viewer.js'). They load,
-  // in order, once the markdown is in the page and the headings have their ids.
-  const ADDONS = [];
+  // Modules that need the rendered doc. They load, in order, once the markdown is
+  // in the page and the headings have their ids. viewer.js: the Bearer in 3D.
+  const ADDONS = ['./viewer.js'];
 
   const doc = document.getElementById('doc');
 

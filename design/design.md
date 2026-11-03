@@ -30,6 +30,8 @@ Each servant is known by what he does and what he wants of the torches that reac
 
 *Monk · the signal*
 
+<div class="model" data-model="bearer" role="img" aria-label="The Bearer, a small hooded monk turning slowly with a lit torch"></div>
+
 - **Order:** Monk · carries
 - **Torches:** One, lit (1) or dark (0), carried unchanged
 
