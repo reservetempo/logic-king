@@ -3,7 +3,7 @@
 A small browser prototype where logic gates are medieval people. Hob Wickfoot carries a torch (lit = 1, dark = 0) down the road, Lord Gainsay the NOT gate overturns it, and the beacon at the road's end lights only if Hob arrives with his torch lit.
 
 - Play: https://reservetempo.github.io/logic-king/
-- Design notes (the book of characters): https://reservetempo.github.io/logic-king/design/
+- Design notes (the book of characters): https://reservetempo.github.io/logic-king/design/ (the words live in [`design/design.md`](design/design.md); the page renders them)
 
 It is plain HTML, CSS and JavaScript modules with no build step. Three.js loads from jsDelivr through an import map.
 

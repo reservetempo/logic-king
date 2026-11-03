@@ -4,719 +4,86 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>The Architect · Characters</title>
-  <meta name="description" content="Character list for The Architect, a 2.5D game where the player is God and logic gates are monks, priests and high priests who carry, weigh and overturn torches.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <title>The Architect</title>
+  <meta name="description" content="Design document for The Architect, a 2.5D game where the player is God and logic gates are monks, priests and high priests who carry, weigh and overturn torches.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="leaf">
-
-  <header class="masthead">
-    <p class="kicker">Design document · Character list</p>
-    <h1>The Architect</h1>
-    <p class="subtitle">The Book of Servants</p>
-    <p class="play-link"><a href="../">Play the prototype</a></p>
-  </header>
-
-  <section class="intro" aria-label="The world">
-    <p class="drop">You are the Architect. Every flame on these roads is yours to set, every servant’s fate yours to decide, and of them you build a machine. Signals are <b>torchbearers</b>, monks who walk the roads between gates, each carrying a single torch: a <em>lit</em> torch is 1, a <em>dark</em> one is 0. A gate receives the torches that arrive and sends one onward, lit or dark, as its keeper judges.</p>
-    <ul class="orders">
-      <li><b>Monks carry</b> A monk never changes a torch on the road. He only walks.</li>
-      <li><b>Priests combine</b> A priest weighs two torches and sends one on.</li>
-      <li><b>High priests negate</b> A high priest overturns what reaches him. The greater high priests keep a priest at their side and overturn his verdict.</li>
-    </ul>
-    <p>Every silhouette echoes its gate symbol, and every high priest wears a small ring (a collar, a brooch, a clasp): the bubble of negation.</p>
-    <p class="motto">Monks carry, priests weigh, high priests overturn.</p>
-  </section>
-
-  <nav class="contents" aria-label="Contents">
-    <ol>
-      <li><a href="#torchbearer">The Bearer <small>Monk</small></a></li>
-      <li><a href="#not">NOT <small>High priest</small></a></li>
-      <li><a href="#and">AND <small>Priest</small></a></li>
-      <li><a href="#or">OR <small>Priest</small></a></li>
-      <li><a href="#nand">NAND <small>High priest</small></a></li>
-      <li><a href="#nor">NOR <small>High priest</small></a></li>
-      <li><a href="#view">The Architect’s View <small>The world</small></a></li>
-    </ol>
-  </nav>
-
-  <div class="flourish" aria-hidden="true">❦</div>
-
-  <!-- Torchbearer -->
-  <article class="sheet" id="torchbearer" aria-labelledby="torchbearer-name">
-    <header class="sheet-head">
-      <p class="gate">The signal</p>
-      <h2 id="torchbearer-name">The Bearer</h2>
-      <p class="title">Monk</p>
-    </header>
-    <figure class="portrait" data-portrait="torchbearer">
-      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-torchbearer-title">
-        <title id="portrait-torchbearer-title">The Bearer, a small bowed monk in a rough black habit and oxblood hood, with a rope girdle and bare feet grey with ash, carrying a lit torch high on a long pole</title>
-        <ellipse cx="146" cy="362" rx="80" ry="8" fill="var(--vignette)" stroke="none"/>
-        <path d="M14 368Q150 356 286 368" stroke-width="1.5" stroke="var(--ink-soft)"/>
-        <circle class="glow" cx="214" cy="84" r="96" fill="var(--flame-glow)" fill-opacity=".22" stroke="none"/>
-        <circle class="glow" cx="214" cy="77.2" r="44.2" fill="var(--flame-glow)" stroke="none"/><rect x="209.5" y="124.6" width="9.1" height="214" fill="var(--habit)"/><path d="M201 98H227L222.5 126.6H205.6Z" fill="var(--wool)"/><path d="M203 109.4H225.1M204.3 119.5H223.8" stroke-width="1.5"/><g transform="translate(214 98) scale(1.3)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <path d="M118 332l-3 14" stroke-width="12.5"/><path d="M118 332l-3 14" stroke="var(--skin)" stroke-width="8"/>
-        <path d="M164 332l3 14" stroke-width="12.5"/><path d="M164 332l3 14" stroke="var(--skin)" stroke-width="8"/>
-        <ellipse cx="119" cy="355" rx="13" ry="5.5" transform="rotate(12 119 355)" fill="var(--skin)"/>
-        <ellipse cx="177" cy="356" rx="14" ry="6" fill="var(--skin)"/>
-        <ellipse cx="126" cy="357" rx="6" ry="3.8" transform="rotate(12 126 357)" fill="var(--ash)" fill-opacity=".6" stroke="none"/><ellipse cx="184" cy="356" rx="7" ry="4.5" fill="var(--ash)" fill-opacity=".6" stroke="none"/>
-        <path d="M185 351v5M189 352v5" stroke-width="1.3"/>
-        <path d="M108 228C94 256 88 300 86 342L95 337L103 345L112 338L121 346L130 339L139 346L148 339L157 346L166 339L175 345L183 338L190 343C189 302 184 264 176 232Z" fill="var(--cope)"/>
-        <path d="M124 292q-5 26-3 48M152 294q4 24 3 46" stroke="var(--ash)" stroke-width="1.6"/>
-        <path d="M98 304l15-2 2 15-15 2z" fill="var(--iron)" stroke="var(--ash)" stroke-width="1.3" stroke-dasharray="3 2.5"/>
-        <path d="M96 274Q138 288 182 274" stroke-width="8"/><path d="M96 274Q138 288 182 274" stroke="var(--wool)" stroke-width="4"/>
-        <path d="M130 283l-5 32" stroke-width="7"/><path d="M130 283l-5 32" stroke="var(--wool)" stroke-width="3.5"/>
-        <circle cx="128" cy="297" r="4.2" fill="var(--wool)" stroke-width="1.8"/><circle cx="126" cy="311" r="4.2" fill="var(--wool)" stroke-width="1.8"/>
-        <path d="M122 317l-2 7M125 317v8M128 317l2 7" stroke="var(--wool)" stroke-width="1.3"/>
-        <path d="M160 238C182 240 200 248 210 258L202 272C190 264 174 260 158 262Z" fill="var(--cope)"/>
-        <path d="M168 240C186 243 199 250 207 257" stroke="var(--flame-glow)" stroke-width="3"/>
-        <circle cx="212" cy="263" r="9" fill="var(--skin)"/><path d="M207 260h9" stroke-width="1.4"/>
-        <path d="M116 186C100 180 86 186 80 200C92 196 102 200 110 210Z" fill="var(--oxblood)"/>
-        <path d="M104 240C96 210 102 176 130 164C148 156 170 160 180 176C190 192 194 218 186 242C166 254 122 254 104 240Z" fill="var(--oxblood)"/>
-        <path d="M118 236q3-36 22-58" stroke="var(--ash)" stroke-width="1.4"/>
-        <path d="M181 177C191 193 194 218 187 240" stroke="var(--flame-glow)" stroke-width="3.5"/>
-        <ellipse cx="160" cy="214" rx="19" ry="24" transform="rotate(14 160 214)" fill="var(--wick)"/>
-        <ellipse cx="163" cy="221" rx="13.5" ry="16.5" transform="rotate(14 163 221)" fill="var(--skin)"/>
-        <path d="M148 211C154 200 172 200 180 211C170 206 157 206 148 211Z" fill="var(--wick)" stroke="none"/>
-        <path d="M154 219q3.5 2.5 7 0M167 219q3.5 2.5 7 0" stroke-width="1.8"/>
-        <path d="M165 222q2 5-1 6" stroke-width="1.5"/>
-        <path d="M160 231q4 1.5 8 0" stroke-width="1.8"/>
-        <circle cx="174" cy="226" r="4" fill="var(--flame-glow)" stroke="none"/>
-      </svg>
-    </figure>
-    <div class="sheet-text">
-      <dl class="facts">
-        <dt>Class</dt><dd>Monk · carries</dd>
-        <dt>Carries</dt><dd>One torch, lit (1) or dark (0)</dd>
-      </dl>
-      <section class="field">
-        <h3>Personality</h3>
-        <p class="drop">Silent, obedient and without question. A bearer never kindles or quenches a torch on the road: he carries what he is given to the next gate and kneels there until he is sent on. He keeps vigil in the queues, murmurs the hours under his breath, and never asks what the Architect is building.</p>
-      </section>
-      <section class="field">
-        <h3>Look</h3>
-        <p>Small and hooded, with short legs and a slow, bowed walk so a column reads at a glance. A rough dark habit, a rope girdle, bare feet grey with ash. The torch rides high on a long pole so its state shows from across the map: lit, it throws a warm halo; dark, it is a charred wick with a thread of smoke. The color of hood or stole (oxblood, deep blue, bone) tells one bearer from another.</p>
-      </section>
-    </div>
-  </article>
-
-  <div class="flourish" aria-hidden="true">❦</div>
-
-  <!-- NOT -->
-  <article class="sheet" id="not" aria-labelledby="not-name">
-    <header class="sheet-head">
-      <p class="gate">A gate</p>
-      <h2 id="not-name">NOT</h2>
-      <p class="title">High priest</p>
-    </header>
-    <figure class="portrait" data-portrait="not">
-      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-not-title">
-        <title id="portrait-not-title">The high priest of NOT, tall and gaunt with ash on his brow, his black cope falling in a hard triangle from a ring of bone at his throat, lowering a long tarnished-gold snuffer over an arriving lit torch, a flint in his other hand</title>
-        <ellipse cx="176" cy="376" rx="96" ry="8" fill="var(--vignette)" stroke="none"/>
-        <path d="M14 380Q150 368 286 380" stroke-width="1.5" stroke="var(--ink-soft)"/>
-        <circle class="glow" cx="58" cy="168" r="84" fill="var(--flame-glow)" fill-opacity=".2" stroke="none"/>
-        <circle class="glow" cx="58" cy="166" r="28" fill="var(--flame-glow)" stroke="none"/><rect x="54.5" y="196" width="7" height="214" fill="var(--habit)"/><path d="M48 176H68L64.5 198H51.5Z" fill="var(--wool)"/><path d="M49.5 184.8H66.5M50.5 192.5H65.5" stroke-width="1.5"/><g transform="translate(58 176)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <path d="M37 162C39 144 46 131 58 128C70 131 77 144 79 162Q58 156 37 162Z" fill="var(--gold)"/>
-        <path d="M41 150Q58 145 75 150" stroke-width="1.5"/><circle cx="58" cy="125" r="3.5" fill="var(--gold)" stroke-width="2"/>
-        <path class="smoke" d="M54 120c-8-9 4-15-2-25c-4-7 3-12 0-19M64 119c6-8-3-13 2-22M35 158c-8-6-6-14-2-20" stroke="var(--smoke)" stroke-width="2.2"/>
-        <path d="M61 124L122 195" stroke-width="7"/><path d="M61 124L122 195" stroke="var(--gold)" stroke-width="3"/>
-        <path d="M-6 292Q26 292 50 300L52 320Q26 316-6 324Z" fill="var(--cope)"/>
-        <path d="M46 300l2 19" stroke-width="1.5"/>
-        <circle cx="58" cy="310" r="8.5" fill="var(--skin)"/>
-        <path d="M166 178C150 176 134 176 118 176L120 194C136 196 150 200 162 212Z" fill="var(--iron)"/>
-        <path d="M206 228C218 232 228 238 236 244L230 260C222 254 212 250 200 248Z" fill="var(--iron)"/>
-        <path d="M178 132L266 376H90Z" fill="var(--cope)"/>
-        <path d="M178 152L212 376H144Z" fill="var(--rubric)"/>
-        <path d="M178 164L202 376H154Z" fill="var(--iron)"/>
-        <path d="M164 196q-16 86-34 172M194 200q14 80 30 166" stroke="var(--ash)" stroke-width="1.6"/>
-        <circle cx="178" cy="214" r="2.4" fill="var(--gold)" stroke="none"/><circle cx="178" cy="244" r="2.4" fill="var(--gold)" stroke="none"/><circle cx="178" cy="274" r="2.4" fill="var(--gold)" stroke="none"/><circle cx="178" cy="304" r="2.4" fill="var(--gold)" stroke="none"/><circle cx="178" cy="334" r="2.4" fill="var(--gold)" stroke="none"/>
-        <path d="M251 334L266 376H236Z" fill="var(--rubric)"/>
-        <path d="M95 364H146M210 364H240" stroke="var(--gold)" stroke-width="2.5"/>
-        <path d="M175.4 150L117.2 310" stroke="var(--flame-glow)" stroke-width="3.5"/>
-        <path d="M120 176l1.5 18" stroke="var(--gold)" stroke-width="3"/>
-        <ellipse cx="111" cy="184" rx="7.5" ry="9" fill="var(--skin)"/><path d="M106 180h9M106 185h9" stroke-width="1.3"/>
-        <path d="M236 244l-6 16" stroke="var(--gold)" stroke-width="3"/>
-        <path d="M232 248l5-9 10-1 5 8-4 8-10 1z" fill="var(--ash)"/><path d="M237 239l3 8 9 1M240 247l-3 8" stroke-width="1.2"/>
-        <circle cx="240" cy="257" r="8.5" fill="var(--skin)"/>
-        <circle cx="178" cy="138" r="12" fill="var(--cope)" stroke="none"/>
-        <g transform="matrix(1.15 0 0 1.15 -26.7 -17.85)">
-        <ellipse cx="193" cy="99" rx="3.5" ry="6" fill="var(--skin)"/>
-        <ellipse cx="178" cy="96" rx="15.5" ry="23" fill="var(--skin)"/>
-        <path d="M189 81q7 6 5 16" stroke="var(--ash)" stroke-width="3.5"/>
-        <path d="M168 82h10M173 77v10" stroke="var(--ash)" stroke-width="3.2"/>
-        <path d="M164 90l9 3M180 93l9-3" stroke-width="2.6"/>
-        <ellipse cx="168.5" cy="98" rx="5.5" ry="4" fill="var(--wick)" fill-opacity=".3" stroke="none"/><ellipse cx="184.5" cy="98" rx="5.5" ry="4" fill="var(--wick)" fill-opacity=".3" stroke="none"/>
-        <path d="M165 98q3.5 2.5 7 0M181 98q3.5 2.5 7 0" stroke-width="1.8"/>
-        <path d="M176 97l-4 13h5" stroke-width="1.6"/>
-        <path d="M164 106q1 7 5 10M191 105q-1 8-5 11" stroke="var(--ink-soft)" stroke-width="1.4"/>
-        <path d="M170 115q4.5-2 9 0" stroke-width="1.8"/>
-        <circle cx="166" cy="108" r="4" fill="var(--flame-glow)" stroke="none"/>
-        </g>
-        <circle cx="178" cy="138" r="12" stroke-width="9"/><circle cx="178" cy="138" r="12" stroke="var(--bone)" stroke-width="5"/>
-        <path d="M168 131a12 12 0 0 1 6-4.5" stroke="var(--flame-glow)" stroke-width="2"/>
-      </svg>
-    </figure>
-    <div class="sheet-text">
-      <dl class="facts">
-        <dt>Class</dt><dd>High priest · negates</dd>
-        <dt>Torches</dt><dd>One in, one out</dd>
-      </dl>
-      <section class="field">
-        <h3>The rule</h3>
-        <p class="rule drop">Bring me fire and I will put it out. Bring me ashes and I will kindle them. Nothing leaves my altar as it came: whatever you carry in, you carry the opposite out.</p>
-      </section>
-      <section class="field">
-        <h3>Truth table</h3>
-        <table class="truth">
-          <caption class="vh">NOT: output for each input torch</caption>
-          <thead><tr><th scope="col">In</th><th scope="col">Out</th></tr></thead>
-          <tbody>
-            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="field">
-        <h3>Personality</h3>
-        <p>Grave, unbending and wholly certain. He answers no before the question is finished, and yes to any who come seeking no. He does not scheme and he does not relent, so the harshest judge in all the world is also the one most surely relied upon. The bearers bow lowest at his gate.</p>
-      </section>
-      <section class="field">
-        <h3>Look</h3>
-        <p>Tall and gaunt, his black cope falling from the shoulders in a hard triangle, with a ring of bone at the throat: the NOT symbol worn as vestment. A hollow face, ash on the brow, a long snuffer in one hand and a flint in the other. Colors: black, rubric-red lining, tarnished gold.</p>
-      </section>
-    </div>
-  </article>
-
-  <div class="flourish" aria-hidden="true">❦</div>
-
-  <!-- AND -->
-  <article class="sheet" id="and" aria-labelledby="and-name">
-    <header class="sheet-head">
-      <p class="gate">A gate</p>
-      <h2 id="and-name">AND</h2>
-      <p class="title">Priest</p>
-    </header>
-    <figure class="portrait" data-portrait="and">
-      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-and-title">
-        <title id="portrait-and-title">The priest of AND, broad and shaven in a heavy black chasuble rounded over his back and flat in front, holding up tarnished gold scales to weigh two lit torches before he lights the third</title>
-        <ellipse cx="204" cy="372" rx="80" ry="8" fill="var(--vignette)" stroke="none"/>
-        <path d="M14 378Q150 366 286 378" stroke-width="1.5" stroke="var(--ink-soft)"/>
-        <circle class="glow" cx="50" cy="130" r="86" fill="var(--flame-glow)" fill-opacity=".22" stroke="none"/>
-        <circle class="glow" cx="28" cy="88" r="32" fill="var(--flame-glow)" stroke="none"/><g transform="rotate(18 28 104)"><rect x="24.5" y="124" width="7" height="320" fill="var(--habit)"/><path d="M18 104H38L34.5 126H21.5Z" fill="var(--wool)"/><path d="M19.5 112.8H36.5M20.5 120.5H35.5" stroke-width="1.5"/></g><g transform="translate(28 104)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <circle class="glow" cx="72" cy="134" r="32" fill="var(--flame-glow)" stroke="none"/><g transform="rotate(18 72 150)"><rect x="68.5" y="170" width="7" height="320" fill="var(--habit)"/><path d="M62 150H82L78.5 172H65.5Z" fill="var(--wool)"/><path d="M63.5 158.8H80.5M64.5 166.5H79.5" stroke-width="1.5"/></g><g transform="translate(72 150)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <circle class="glow" cx="286" cy="142" r="28" fill="var(--flame-glow)" stroke="none"/><rect x="282.5" y="176" width="7" height="234" fill="var(--habit)"/><path d="M276 156H296L292.5 178H279.5Z" fill="var(--wool)"/><path d="M277.5 164.8H294.5M278.5 172.5H293.5" stroke-width="1.5"/><g transform="translate(286 156) scale(0.8)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <circle cx="275" cy="112" r="1.8" fill="var(--flame)" stroke="none"/><circle cx="295" cy="104" r="1.6" fill="var(--flame)" stroke="none"/><circle cx="283" cy="94" r="1.4" fill="var(--flame)" stroke="none"/>
-        <path d="M146 164V368H200C248 368 272 326 272 266C272 206 246 164 200 164Z" fill="var(--cope)"/>
-        <path d="M190 204q-6 76 2 152M226 214q8 62 0 128" stroke="var(--ash)" stroke-width="1.6"/>
-        <path d="M208 176C244 186 260 224 260 266C260 312 240 346 206 356" stroke="var(--gold)" stroke-width="2.5"/>
-        <path d="M154 168H170L172 350H154Z" fill="var(--oxblood)"/>
-        <path d="M163 316v20M156 322h14" stroke="var(--gold)" stroke-width="2.2"/>
-        <path d="M157 350v7M161 350v7M165 350v7M169 350v7" stroke="var(--gold)" stroke-width="1.3"/>
-        <ellipse cx="208" cy="134" rx="4.5" ry="7" fill="var(--skin)"/>
-        <circle cx="184" cy="130" r="25" fill="var(--skin)"/>
-        <path d="M158 158Q184 174 210 158L211 168Q184 186 157 168Z" fill="var(--oxblood)"/>
-        <path d="M172 111q10-3 20 0" stroke-width="1.2"/>
-        <path d="M165 120l10 4M182 124l10-3" stroke-width="2.6"/>
-        <path d="M167 130h8M183 130h8" stroke-width="1.8"/>
-        <circle cx="169" cy="132" r="2" fill="var(--ink)" stroke="none"/><circle cx="185" cy="132" r="2" fill="var(--ink)" stroke="none"/>
-        <path d="M177 133q-6 8 0 10" stroke-width="1.6"/>
-        <path d="M171 148h12" stroke-width="2"/>
-        <circle cx="166" cy="142" r="5" fill="var(--flame-glow)" stroke="none"/>
-        <path d="M152 184C136 188 122 194 108 198L112 216C126 214 140 214 154 218Z" fill="var(--cope)"/>
-        <path d="M104 190V220" stroke-width="5.5"/><path d="M104 190V220" stroke="var(--gold)" stroke-width="2.5"/>
-        <circle cx="104" cy="186" r="4.5" stroke="var(--gold)" stroke-width="2.2"/>
-        <circle cx="104" cy="206" r="8" fill="var(--skin)"/>
-        <path d="M78 220H130" stroke-width="6"/><path d="M78 220H130" stroke="var(--gold)" stroke-width="3"/>
-        <circle cx="78" cy="220" r="3" fill="var(--gold)" stroke-width="1.5"/><circle cx="130" cy="220" r="3" fill="var(--gold)" stroke-width="1.5"/>
-        <path d="M78 222L67 250M78 222L89 250M130 222L119 250M130 222L141 250" stroke="var(--gold)" stroke-width="1.3"/>
-        <circle class="glow" cx="78" cy="240" r="13" fill="var(--flame-glow)" stroke="none"/><circle class="glow" cx="130" cy="240" r="13" fill="var(--flame-glow)" stroke="none"/>
-        <path d="M65 250Q78 261 91 250Z" fill="var(--gold)"/><path d="M117 250Q130 261 143 250Z" fill="var(--gold)"/>
-        <g transform="translate(78 250) scale(0.4)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g><g transform="translate(130 250) scale(0.4)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-      </svg>
-    </figure>
-    <div class="sheet-text">
-      <dl class="facts">
-        <dt>Class</dt><dd>Priest · combines</dd>
-        <dt>Torches</dt><dd>Two in, one out</dd>
-      </dl>
-      <section class="field">
-        <h3>The rule</h3>
-        <p class="rule drop">Only when both of you come before me burning will I light the torch that leaves. One dark torch is a witness against, and I will heed it.</p>
-      </section>
-      <section class="field">
-        <h3>Truth table</h3>
-        <table class="truth">
-          <caption class="vh">AND: output for each pair of input torches</caption>
-          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
-          <tbody>
-            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
-            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="field">
-        <h3>Personality</h3>
-        <p>Patient, exacting and slow to judge. He will not be hurried, and half a testimony does not move him; he weighs both torches twice before he gives his verdict. Disputes with the priest of OR through every night vigil, and never yields.</p>
-      </section>
-      <section class="field">
-        <h3>Look</h3>
-        <p>Broad and solid: a heavy black chasuble swells round over his back and hangs flat in front, giving him the flat-fronted, rounded D of the AND symbol. A shaven head, a stole of rubric red, a pair of scales at his girdle. Colors: black, oxblood, tarnished gold.</p>
-      </section>
-    </div>
-  </article>
-
-  <div class="flourish" aria-hidden="true">❦</div>
-
-  <!-- OR -->
-  <article class="sheet" id="or" aria-labelledby="or-name">
-    <header class="sheet-head">
-      <p class="gate">A gate</p>
-      <h2 id="or-name">OR</h2>
-      <p class="title">Priest</p>
-    </header>
-    <figure class="portrait" data-portrait="or">
-      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-or-title">
-        <title id="portrait-or-title">The priest of OR, tall and spare in a pointed ash-grey cowl and chasuble that sweep into the curved, pointed shield of his gate, lighting the outgoing torch from the one lit arrival while the other stands dark and smoking</title>
-        <ellipse cx="150" cy="376" rx="86" ry="8" fill="var(--vignette)" stroke="none"/>
-        <path d="M14 380Q150 368 286 380" stroke-width="1.5" stroke="var(--ink-soft)"/>
-        <circle class="glow" cx="46" cy="156" r="80" fill="var(--flame-glow)" fill-opacity=".22" stroke="none"/>
-        <circle class="glow" cx="34" cy="158" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="30.5" y="196" width="7" height="214" fill="var(--habit)"/><path d="M24 176H44L40.5 198H27.5Z" fill="var(--wool)"/><path d="M25.5 184.8H42.5M26.5 192.5H41.5" stroke-width="1.5"/><g transform="translate(34 176)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <rect x="264.5" y="226" width="7" height="184" fill="var(--habit)"/><path d="M258 206H278L274.5 228H261.5Z" fill="var(--wool)"/><path d="M259.5 214.8H276.5M260.5 222.5H275.5" stroke-width="1.5"/><path d="M258 207Q263 201 268 205Q273 200 278 207L276.5 212L271 210L266 213L259.5 211Z" fill="var(--wick)"/><path class="smoke" d="M268 202c-7-8 6-13 0-21c-5-7 4-12 0-20M272 203c5-7-3-11 1-17" stroke="var(--smoke)" stroke-width="2.2"/>
-        <path d="M100 330H200V370H100Z" fill="var(--bone)"/>
-        <ellipse cx="136" cy="371" rx="10" ry="4.5" fill="var(--skin)"/><ellipse cx="164" cy="371" rx="10" ry="4.5" fill="var(--skin)"/>
-        <path d="M150 44C206 104 232 246 230 372Q150 324 70 372C68 246 94 104 150 44Z" fill="var(--ash)"/>
-        <path d="M140 184H160L168 344H132Z" fill="var(--night)"/>
-        <path d="M150 300v20M142 307h16" stroke="var(--bone)" stroke-width="2.4"/>
-        <path d="M135 344v7M141 344v7M147 344v7M153 344v7M159 344v7M165 344v7" stroke="var(--bone)" stroke-width="1.3"/>
-        <path d="M108 184Q150 212 192 184" stroke-width="2"/>
-        <path d="M84 252Q150 266 216 252" stroke-width="8"/><path d="M84 252Q150 266 216 252" stroke="var(--bone)" stroke-width="3.5"/>
-        <ellipse cx="150" cy="126" rx="27" ry="33" fill="var(--bone)"/>
-        <ellipse cx="150" cy="128" rx="22" ry="28" fill="var(--wick)"/>
-        <ellipse cx="150" cy="134" rx="17" ry="21" fill="var(--skin)"/>
-        <path d="M139 130q4-3 8 0M153 130q4-3 8 0" stroke-width="1.8"/>
-        <circle cx="141" cy="132.5" r="2" fill="var(--ink)" stroke="none"/><circle cx="155" cy="132.5" r="2" fill="var(--ink)" stroke="none"/>
-        <path d="M149 134q-3 6 1 7" stroke-width="1.6"/>
-        <path d="M144 146q6 3 12 0" stroke-width="1.8"/>
-        <circle cx="139" cy="141" r="4" fill="var(--flame-glow)" stroke="none"/>
-        <path d="M194 259v9" stroke-width="1.6"/>
-        <circle class="glow" cx="194" cy="284" r="17" fill="var(--flame-glow)" stroke="none"/>
-        <rect x="186" y="270" width="16" height="20" rx="2" fill="var(--flame-glow)"/>
-        <g transform="translate(194 287) scale(0.38)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <path d="M184 270l10-7 10 7z" fill="var(--gold)"/><path d="M185 290h18" stroke-width="3"/>
-        <path d="M184 186C202 202 214 228 216 254L200 258C198 238 190 216 176 202Z" fill="var(--ash)"/>
-        <ellipse cx="208" cy="268" rx="7" ry="9" transform="rotate(-15 208 268)" fill="var(--skin)"/>
-        <circle class="glow" cx="57" cy="152" r="24" fill="var(--flame-glow)" stroke="none"/>
-        <g transform="rotate(-28 101 250)"><rect x="97.5" y="176" width="7" height="118" fill="var(--habit)"/><path d="M91 156H111L107.5 178H94.5Z" fill="var(--wool)"/><path d="M92.5 164.8H109.5M93.5 172.5H108.5" stroke-width="1.5"/></g><g transform="translate(56.9 167) scale(0.85)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <path d="M116 186C100 206 92 228 92 248L110 252C110 232 116 212 126 198Z" fill="var(--ash)"/>
-        <circle cx="101" cy="250" r="8.5" fill="var(--skin)"/>
-      </svg>
-    </figure>
-    <div class="sheet-text">
-      <dl class="facts">
-        <dt>Class</dt><dd>Priest · combines</dd>
-        <dt>Torches</dt><dd>Two in, one out</dd>
-      </dl>
-      <section class="field">
-        <h3>The rule</h3>
-        <p class="rule drop">If but one of you comes before me burning, the torch that leaves shall burn. Only when both come dark do I send darkness on.</p>
-      </section>
-      <section class="field">
-        <h3>Truth table</h3>
-        <table class="truth">
-          <caption class="vh">OR: output for each pair of input torches</caption>
-          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
-          <tbody>
-            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
-            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="field">
-        <h3>Personality</h3>
-        <p>Merciful, quick to grant and slow to refuse: a single flame is reason enough for him to give light. He keeps the night office in a low chant and gives away his bread. Thinks the priest of AND hard of heart, and tells him so, gently.</p>
-      </section>
-      <section class="field">
-        <h3>Look</h3>
-        <p>Tall and spare; a pointed cowl and a chasuble that sweeps back in a curve give him the curved, pointed shield of the OR symbol. Ash-grey vestments, a deep-blue stole, and a small lamp at his girdle that he never lets go out. Colors: ash grey, deep blue, bone, candle yellow.</p>
-      </section>
-    </div>
-  </article>
-
-  <div class="flourish" aria-hidden="true">❦</div>
-
-  <!-- NAND -->
-  <article class="sheet" id="nand" aria-labelledby="nand-name">
-    <header class="sheet-head">
-      <p class="gate">A gate</p>
-      <h2 id="nand-name">NAND</h2>
-      <p class="title">High priest</p>
-    </header>
-    <figure class="portrait" data-portrait="nand">
-      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-nand-title">
-        <title id="portrait-nand-title">The high priest of NAND, heavy and broad in an oxblood cope rounded over his back and flat in front, a great ring brooch of tarnished gold at his breast, snuffing the outgoing torch while the small priest of AND at his elbow weighs two lit torches on his scales</title>
-        <ellipse cx="172" cy="376" rx="104" ry="8" fill="var(--vignette)" stroke="none"/>
-        <path d="M14 380Q150 368 286 380" stroke-width="1.5" stroke="var(--ink-soft)"/>
-        <circle class="glow" cx="44" cy="176" r="86" fill="var(--flame-glow)" fill-opacity=".22" stroke="none"/>
-        <circle class="glow" cx="26" cy="134" r="30" fill="var(--flame-glow)" stroke="none"/><g transform="rotate(30 26 150)"><rect x="22.5" y="170" width="7" height="300" fill="var(--habit)"/><path d="M16 150H36L32.5 172H19.5Z" fill="var(--wool)"/><path d="M17.5 158.8H34.5M18.5 166.5H33.5" stroke-width="1.5"/></g><g transform="translate(26 150)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <circle class="glow" cx="58" cy="172" r="30" fill="var(--flame-glow)" stroke="none"/><g transform="rotate(30 58 188)"><rect x="54.5" y="208" width="7" height="300" fill="var(--habit)"/><path d="M48 188H68L64.5 210H51.5Z" fill="var(--wool)"/><path d="M49.5 196.8H66.5M50.5 204.5H65.5" stroke-width="1.5"/></g><g transform="translate(58 188)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <g transform="translate(-12.9 165.3) scale(.54)" stroke-width="4.8">
-          <path d="M146 164V368H200C248 368 272 326 272 266C272 206 246 164 200 164Z" fill="var(--cope)"/>
-          <path d="M190 204q-6 76 2 152M226 214q8 62 0 128" stroke="var(--ash)" stroke-width="2.6"/>
-          <path d="M208 176C244 186 260 224 260 266C260 312 240 346 206 356" stroke="var(--gold)" stroke-width="4"/>
-          <path d="M154 168H170L172 350H154Z" fill="var(--oxblood)"/>
-          <path d="M163 316v20M156 322h14" stroke="var(--gold)" stroke-width="3.5"/>
-          <ellipse cx="208" cy="134" rx="4.5" ry="7" fill="var(--skin)"/>
-          <circle cx="184" cy="130" r="25" fill="var(--skin)"/>
-          <path d="M158 158Q184 174 210 158L211 168Q184 186 157 168Z" fill="var(--oxblood)"/>
-          <path d="M165 120l10 4M182 124l10-3" stroke-width="3.6"/>
-          <path d="M167 130h8M183 130h8" stroke-width="3"/>
-          <circle cx="169" cy="132" r="2.6" fill="var(--ink)" stroke="none"/><circle cx="185" cy="132" r="2.6" fill="var(--ink)" stroke="none"/>
-          <path d="M177 133q-6 8 0 10" stroke-width="2.6"/>
-          <path d="M171 148h12" stroke-width="3"/>
-          <circle cx="166" cy="142" r="5" fill="var(--flame-glow)" stroke="none"/>
-          <path d="M152 184C136 188 122 194 108 198L112 216C126 214 140 214 154 218Z" fill="var(--cope)"/>
-          <path d="M104 190V220" stroke-width="8"/><path d="M104 190V220" stroke="var(--gold)" stroke-width="4"/>
-          <circle cx="104" cy="186" r="4.5" stroke="var(--gold)" stroke-width="3.5"/>
-          <circle cx="104" cy="206" r="8" fill="var(--skin)"/>
-          <path d="M78 220H130" stroke-width="8.5"/><path d="M78 220H130" stroke="var(--gold)" stroke-width="4.5"/>
-          <circle cx="78" cy="220" r="3.5" fill="var(--gold)"/><circle cx="130" cy="220" r="3.5" fill="var(--gold)"/>
-          <path d="M78 222L67 250M78 222L89 250M130 222L119 250M130 222L141 250" stroke="var(--gold)" stroke-width="2.4"/>
-          <circle class="glow" cx="78" cy="240" r="14" fill="var(--flame-glow)" stroke="none"/><circle class="glow" cx="130" cy="240" r="14" fill="var(--flame-glow)" stroke="none"/>
-          <path d="M65 250Q78 261 91 250Z" fill="var(--gold)"/><path d="M117 250Q130 261 143 250Z" fill="var(--gold)"/>
-          <g transform="translate(78 250) scale(0.45)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g><g transform="translate(130 250) scale(0.45)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        </g>
-        <circle class="glow" cx="280" cy="226" r="20" fill="var(--flame-glow)" stroke="none"/><rect x="276.5" y="246" width="7" height="164" fill="var(--habit)"/><path d="M270 226H290L286.5 248H273.5Z" fill="var(--wool)"/><path d="M271.5 234.8H288.5M272.5 242.5H287.5" stroke-width="1.5"/><g transform="translate(280 226) scale(0.9)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <path d="M261 223C263 204 270 190 280 188C290 190 297 204 299 223Q280 217 261 223Z" fill="var(--gold)"/>
-        <path d="M265 210Q280 205 295 210" stroke-width="1.5"/><circle cx="280" cy="185" r="3.5" fill="var(--gold)" stroke-width="2"/>
-        <path class="smoke" d="M276 180c-8-9 4-15-2-25c-4-7 3-12 0-19M287 181c6-8-3-13 2-22M259 220c-8-6-6-14-2-20" stroke="var(--smoke)" stroke-width="2.2"/>
-        <path d="M281 184L242 136" stroke-width="7"/><path d="M281 184L242 136" stroke="var(--gold)" stroke-width="3"/>
-        <path d="M214 178C228 166 236 156 240 148L256 156C252 170 244 182 232 194Z" fill="var(--oxblood)"/>
-        <path d="M136 170V374H196C236 374 256 334 256 274C256 214 236 170 196 170Z" fill="var(--oxblood)"/>
-        <path d="M186 214q-6 72 2 146M222 238q8 56 0 112" stroke="var(--ash)" stroke-width="1.6"/>
-        <path d="M206 180C240 190 248 230 248 274C248 318 232 350 202 364" stroke="var(--gold)" stroke-width="2.5"/>
-        <path d="M144 172H162L164 372H144Z" fill="var(--cope)"/>
-        <path d="M154 322v20M147 328h14" stroke="var(--gold)" stroke-width="2.2"/>
-        <path d="M140 176V368" stroke="var(--flame-glow)" stroke-width="3.5"/>
-        <path d="M240 149l15 8" stroke="var(--gold)" stroke-width="3"/>
-        <ellipse cx="250" cy="144" rx="8" ry="8.5" fill="var(--skin)"/><path d="M245 140l9 2M244 145l9 2" stroke-width="1.3"/>
-        <path d="M166 162Q192 178 218 162L219 172Q192 190 165 172Z" fill="var(--cope)"/>
-        <ellipse cx="214" cy="138" rx="4.5" ry="7.5" fill="var(--skin)"/>
-        <circle cx="190" cy="134" r="27" fill="var(--skin)"/>
-        <path d="M177 109C180 103 186 100 193 100C200 100 206 103 209 109C200 106 186 106 177 109Z" fill="var(--cope)"/>
-        <path d="M170 125l11 3M188 128l11-2" stroke-width="3"/>
-        <path d="M171 135q4.5 3 9 0M188 135q4.5 3 9 0" stroke-width="2"/>
-        <path d="M185 136q-8 10 0 12" stroke-width="1.8"/>
-        <path d="M174 155q7-3 14 0" stroke-width="2"/>
-        <path d="M168 144q1 10 9 15M211 144q-1 10-9 15" stroke="var(--ink-soft)" stroke-width="1.4"/>
-        <circle cx="172" cy="146" r="5" fill="var(--flame-glow)" stroke="none"/>
-        <circle cx="220" cy="216" r="16" stroke-width="11"/><circle cx="220" cy="216" r="16" stroke="var(--gold)" stroke-width="6.5"/>
-        <path d="M206 209a16 16 0 0 1 7-7.5" stroke="var(--flame-core)" stroke-width="1.6"/>
-      </svg>
-    </figure>
-    <div class="sheet-text">
-      <dl class="facts">
-        <dt>Class</dt><dd>High priest · negates, with the AND priest at his side</dd>
-        <dt>Torches</dt><dd>Two in, one out</dd>
-      </dl>
-      <section class="field">
-        <h3>The rule</h3>
-        <p class="rule drop">My priest weighs the torches as AND was taught to weigh them, and then I overturn his judgment. Two lit torches leave dark. Anything less leaves lit.</p>
-      </section>
-      <section class="field">
-        <h3>Truth table</h3>
-        <table class="truth">
-          <caption class="vh">NAND: output for each pair of input torches</caption>
-          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
-          <tbody>
-            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
-            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="field">
-        <h3>Personality</h3>
-        <p>Distrustful of consensus: when every torch agrees he suspects a false witness and overturns the verdict. In every other case he is lenient, almost merciful, so most torches leave his altar lit. He holds that his order alone could build the whole machine without any other gate, and, gravely, he is right.</p>
-      </section>
-      <section class="field">
-        <h3>Look</h3>
-        <p>Heavy and broad, in a rounded cope that repeats the AND priest beside him, with a large ring brooch of tarnished gold at the breast: the bubble of negation. The AND priest stands at his elbow with scales in hand, so the sprite is a pair, high priest in front and priest half a step behind. Colors: oxblood, tarnished gold, black.</p>
-      </section>
-    </div>
-  </article>
-
-  <div class="flourish" aria-hidden="true">❦</div>
-
-  <!-- NOR -->
-  <article class="sheet" id="nor" aria-labelledby="nor-name">
-    <header class="sheet-head">
-      <p class="gate">A gate</p>
-      <h2 id="nor-name">NOR</h2>
-      <p class="title">High priest</p>
-    </header>
-    <figure class="portrait" data-portrait="nor">
-      <svg viewBox="0 0 300 400" role="img" aria-labelledby="portrait-nor-title">
-        <title id="portrait-nor-title">The high priest of NOR, tall and still in a deep-blue cope that falls from a ring clasp of bone at his collar into the curved, pointed shield of his gate, lighting the outgoing torch with a long taper because both arriving torches came dark and smoking, while the small priest of OR at his side carries a dark lamp</title>
-        <ellipse cx="178" cy="376" rx="104" ry="8" fill="var(--vignette)" stroke="none"/>
-        <path d="M14 380Q150 368 286 380" stroke-width="1.5" stroke="var(--ink-soft)"/>
-        <circle class="glow" cx="280" cy="176" r="86" fill="var(--flame-glow)" fill-opacity=".22" stroke="none"/>
-        <rect x="16.5" y="188" width="7" height="222" fill="var(--habit)"/><path d="M10 168H30L26.5 190H13.5Z" fill="var(--wool)"/><path d="M11.5 176.8H28.5M12.5 184.5H27.5" stroke-width="1.5"/><path d="M10 169Q15 163 20 167Q25 162 30 169L28.5 174L23 172L18 175L11.5 173Z" fill="var(--wick)"/><path class="smoke" d="M20 164c-7-8 6-13 0-21c-5-7 4-12 0-20M24 165c5-7-3-11 1-17" stroke="var(--smoke)" stroke-width="2.2"/>
-        <rect x="42.5" y="224" width="7" height="186" fill="var(--habit)"/><path d="M36 204H56L52.5 226H39.5Z" fill="var(--wool)"/><path d="M37.5 212.8H54.5M38.5 220.5H53.5" stroke-width="1.5"/><path d="M36 205Q41 199 46 203Q51 198 56 205L54.5 210L49 208L44 211L37.5 209Z" fill="var(--wick)"/><path class="smoke" d="M46 200c-7-8 6-13 0-21c-5-7 4-12 0-20M50 201c5-7-3-11 1-17" stroke="var(--smoke)" stroke-width="2.2"/>
-        <g transform="translate(22 177) scale(.5)" stroke-width="4.8">
-          <path d="M100 330H200V370H100Z" fill="var(--bone)"/>
-          <ellipse cx="136" cy="371" rx="10" ry="4.5" fill="var(--skin)"/><ellipse cx="164" cy="371" rx="10" ry="4.5" fill="var(--skin)"/>
-          <path d="M150 44C206 104 232 246 230 372Q150 324 70 372C68 246 94 104 150 44Z" fill="var(--ash)"/>
-          <path d="M140 184H160L168 344H132Z" fill="var(--night)"/>
-          <path d="M150 300v20M142 307h16" stroke="var(--bone)" stroke-width="4"/>
-          <path d="M135 344v7M141 344v7M147 344v7M153 344v7M159 344v7M165 344v7" stroke="var(--bone)" stroke-width="2.6"/>
-          <path d="M108 184Q150 212 192 184" stroke-width="3.5"/>
-          <path d="M84 252Q150 266 216 252" stroke-width="12"/><path d="M84 252Q150 266 216 252" stroke="var(--bone)" stroke-width="5.5"/>
-          <ellipse cx="150" cy="126" rx="27" ry="33" fill="var(--bone)"/>
-          <ellipse cx="150" cy="128" rx="22" ry="28" fill="var(--wick)"/>
-          <ellipse cx="150" cy="134" rx="17" ry="21" fill="var(--skin)"/>
-          <path d="M139 130q4-3 8 0M153 130q4-3 8 0" stroke-width="3"/>
-          <circle cx="141" cy="132.5" r="2.6" fill="var(--ink)" stroke="none"/><circle cx="155" cy="132.5" r="2.6" fill="var(--ink)" stroke="none"/>
-          <path d="M149 134q-3 6 1 7" stroke-width="2.6"/>
-          <path d="M144 146q6 3 12 0" stroke-width="3"/>
-          <circle cx="161" cy="141" r="4" fill="var(--flame-glow)" stroke="none"/>
-          <path d="M194 259v9" stroke-width="2.6"/>
-          <rect x="186" y="270" width="16" height="20" rx="2" fill="var(--wick)"/>
-          <path d="M184 270l10-7 10 7z" fill="var(--gold)"/><path d="M185 290h18" stroke-width="4.5"/>
-          <path d="M184 186C202 202 214 228 216 254L200 258C198 238 190 216 176 202Z" fill="var(--ash)"/>
-          <ellipse cx="208" cy="268" rx="7" ry="9" transform="rotate(-15 208 268)" fill="var(--skin)"/>
-          <path d="M116 186C100 206 92 228 92 248L110 252C110 232 116 212 126 198Z" fill="var(--ash)"/>
-          <circle cx="101" cy="250" r="8.5" fill="var(--skin)"/>
-        </g>
-        <circle class="glow" cx="282" cy="172" r="34" fill="var(--flame-glow)" stroke="none"/><rect x="278.5" y="210" width="7" height="200" fill="var(--habit)"/><path d="M272 190H292L288.5 212H275.5Z" fill="var(--wool)"/><path d="M273.5 198.8H290.5M274.5 206.5H289.5" stroke-width="1.5"/><g transform="translate(282 190)"><g class="fl"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <path d="M230 220C240 222 248 226 256 228L254 246C246 244 238 244 228 246Z" fill="var(--ash)"/>
-        <path d="M200 150C248 186 268 290 266 376Q200 342 134 376C132 290 152 186 200 150Z" fill="var(--night)"/>
-        <path d="M178 222q-12 64-18 124M222 224q12 62 16 122" stroke="var(--ash)" stroke-width="1.6"/>
-        <path d="M140 368Q200 336 260 368" stroke="var(--bone)" stroke-width="2.2"/>
-        <path d="M194 160H206L211 348H189Z" fill="var(--rubric)"/>
-        <path d="M200 312v20M193 318h14" stroke="var(--bone)" stroke-width="2.4"/>
-        <path d="M191 348v7M197 348v7M203 348v7M209 348v7" stroke="var(--bone)" stroke-width="1.3"/>
-        <path d="M204 162C238 194 252 262 254 300" stroke="var(--flame-glow)" stroke-width="3.5"/>
-        <path d="M255 228l-1.5 18" stroke="var(--bone)" stroke-width="3"/>
-        <path d="M254 252L270 206" stroke-width="6"/><path d="M254 252L270 206" stroke="var(--bone)" stroke-width="2.5"/>
-        <circle class="glow" cx="270" cy="200" r="9" fill="var(--flame-glow)" stroke="none"/><g transform="translate(270 206) scale(0.32)"><g class="fl f2"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g></g>
-        <ellipse cx="260" cy="236" rx="7" ry="8.5" fill="var(--skin)"/><path d="M255 232h9M255 237h9" stroke-width="1.3"/>
-        <circle cx="200" cy="140" r="11" fill="var(--night)" stroke="none"/>
-        <g transform="matrix(1.12 0 0 1.12 -24 -15.12)">
-        <ellipse cx="185" cy="106" rx="3.5" ry="6" fill="var(--skin)"/>
-        <ellipse cx="200" cy="104" rx="15.5" ry="22" fill="var(--skin)"/>
-        <path d="M185 100C183 88 190 81 200 81C209 81 214 85 215 90C209 86 202 86 196 89C191 91 187 95 185 100Z" fill="var(--ash)"/>
-        <path d="M196 98h8M209 97.5h7" stroke-width="2.4"/>
-        <path d="M196 104q3.5 2 7 0M209 103.5q3 2 6 0" stroke-width="1.8"/>
-        <path d="M207 104l3 10h-4" stroke-width="1.6"/>
-        <path d="M201 119h8" stroke-width="1.8"/>
-        <path d="M191 110q1 6 5 9" stroke="var(--ink-soft)" stroke-width="1.3"/>
-        <circle cx="212" cy="112" r="4" fill="var(--flame-glow)" stroke="none"/>
-        </g>
-        <circle cx="200" cy="140" r="11" stroke-width="9"/><circle cx="200" cy="140" r="11" stroke="var(--bone)" stroke-width="5"/>
-        <path d="M206 131a11 11 0 0 1 4 5" stroke="var(--flame-glow)" stroke-width="2"/>
-      </svg>
-    </figure>
-    <div class="sheet-text">
-      <dl class="facts">
-        <dt>Class</dt><dd>High priest · negates, with the OR priest at his side</dd>
-        <dt>Torches</dt><dd>Two in, one out</dd>
-      </dl>
-      <section class="field">
-        <h3>The rule</h3>
-        <p class="rule drop">My priest would give light if either torch were burning. I forbid it. The torch that leaves my altar shall burn only when both arrive dark.</p>
-      </section>
-      <section class="field">
-        <h3>Truth table</h3>
-        <table class="truth">
-          <caption class="vh">NOR: output for each pair of input torches</caption>
-          <thead><tr><th scope="col">In A</th><th scope="col">In B</th><th scope="col">Out</th></tr></thead>
-          <tbody>
-            <tr><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td></tr>
-            <tr><td class="dark">0 <i>dark</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td><td class="dark">0 <i>dark</i></td></tr>
-            <tr><td class="lit">1 <i>lit</i></td><td class="lit">1 <i>lit</i></td><td class="dark">0 <i>dark</i></td></tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="field">
-        <h3>Personality</h3>
-        <p>Cold, still and austere, a keeper of the long night. He trusts darkness and receives any flame as an offense, so only two dark torches find favor with him. Like NAND he could build the whole machine with his order alone; unlike NAND, he would never say so aloud.</p>
-      </section>
-      <section class="field">
-        <h3>Look</h3>
-        <p>Tall and motionless, in a deep-blue cope whose curved, pointed hem sweeps back in the shield of OR, with a ring clasp of bone at the collar. The OR priest walks at his side carrying a lamp the high priest keeps dark. Colors: deep blue, bone, ash grey, one rubric-red stole.</p>
-      </section>
-    </div>
-  </article>
-
-  <div class="flourish" aria-hidden="true">❦</div>
-
-  <!-- The Architect's view -->
-  <section class="sheet view" id="view" aria-labelledby="view-name">
-    <header class="sheet-head">
-      <p class="gate">The world</p>
-      <h2 id="view-name">The Architect’s View</h2>
-      <p class="title">The machine, seen from above</p>
-    </header>
-    <figure class="portrait scene">
-      <svg viewBox="0 0 300 450" role="img" aria-labelledby="scene-title">
-        <title id="scene-title">A stretch of the board at night, seen from the south and above: chunky bevelled grass tiles with dark gaps between them, a packed-earth road winding down from the top, a small hooded monk walking it with a lit torch, a high priest in a black cope and ringed staff beside a small dark stone chapel with one arched door and a low lamp, low mist over the grass, and at the bottom a stone beacon tower whose fire burns, with the top and bottom of the view softened by tilt-shift blur</title>
-        <defs>
-          <linearGradient id="scene-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--sky-haze)"/><stop offset="1" stop-color="var(--sky)"/></linearGradient>
-          <linearGradient id="scene-gloom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--sky)" stop-opacity=".8"/><stop offset=".22" stop-color="var(--sky)" stop-opacity="0"/><stop offset=".8" stop-color="var(--sky)" stop-opacity="0"/><stop offset="1" stop-color="var(--sky)" stop-opacity=".6"/></linearGradient>
-          <radialGradient id="scene-warm"><stop offset="0" stop-color="var(--flame)" stop-opacity=".28"/><stop offset="1" stop-color="var(--flame)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="scene-bloom"><stop offset="0" stop-color="var(--flame-core)" stop-opacity=".6"/><stop offset=".22" stop-color="var(--flame)" stop-opacity=".32"/><stop offset="1" stop-color="var(--flame)" stop-opacity="0"/></radialGradient>
-          <linearGradient id="scene-edges" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".08" stop-color="#fff"/><stop offset=".22" stop-color="#000"/><stop offset=".82" stop-color="#000"/><stop offset=".94" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient>
-          <mask id="scene-tilt" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="450"><rect width="300" height="450" fill="url(#scene-edges)"/></mask>
-          <filter id="scene-blur-top" filterUnits="userSpaceOnUse" x="-10" y="-10" width="320" height="115"><feGaussianBlur stdDeviation="3"/></filter>
-          <filter id="scene-blur-foot" filterUnits="userSpaceOnUse" x="-10" y="360" width="320" height="100"><feGaussianBlur stdDeviation="3"/></filter>
-          <filter id="scene-haze" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
-          <g id="scene-flame"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g>
-          <g id="scene-tile" stroke="none"><rect y="26" width="50" height="13" rx="4" fill="var(--clay)"/><rect width="50" height="34" rx="6" fill="var(--grass-deep)"/><rect x="2.5" y="2" width="45" height="28.5" rx="4.5" fill="var(--grass)"/><rect x="5" y="3.5" width="40" height="7" rx="3" fill="var(--moonlight)" fill-opacity=".07"/><path d="M7 1.3H43" stroke="var(--moonlight)" stroke-opacity=".5" stroke-width="1.2" stroke-linecap="round"/></g>
-          <g id="scene-road" stroke="none"><rect y="26" width="50" height="13" rx="4" fill="var(--clay)"/><rect width="50" height="34" rx="6" fill="var(--earth-deep)"/><rect x="2.5" y="2" width="45" height="28.5" rx="4.5" fill="var(--earth)"/><rect x="5" y="3.5" width="40" height="7" rx="3" fill="var(--moonlight)" fill-opacity=".06"/><path d="M7 1.3H43" stroke="var(--moonlight)" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/></g>
-          <pattern id="scene-board" patternUnits="userSpaceOnUse" x="13" y="-20" width="56" height="40"><use href="#scene-tile"/></pattern>
-          <g id="scene-tree">
-            <ellipse cy="1" rx="11" ry="3.5" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
-            <path d="M-1.8 1V-7H1.8V1Z" fill="var(--earth-deep)"/>
-            <g stroke-width="2"><circle cx="-5" cy="-11" r="6.5"/><circle cx="5" cy="-11" r="6.5"/><circle cy="-17" r="8"/></g>
-            <g fill="var(--grass-deep)" stroke="none"><circle cx="-5" cy="-11" r="6.5"/><circle cx="5" cy="-11" r="6.5"/><circle cy="-17" r="8"/></g>
-            <path d="M-6 -20q3-6 9.5-5.5" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.3"/>
-          </g>
-        </defs>
-        <g id="scene-world">
-          <rect width="300" height="450" fill="url(#scene-sky)" stroke="none"/>
-          <rect x="13" y="-20" width="274" height="480" fill="var(--soot)" stroke="none"/>
-          <rect x="13" y="-20" width="274" height="480" fill="url(#scene-board)" stroke="none"/>
-          <!-- the road: tile by tile from the top of the world to the beacon -->
-          <use href="#scene-road" x="181" y="-20"/><use href="#scene-road" x="181" y="20"/><use href="#scene-road" x="181" y="60"/><use href="#scene-road" x="125" y="60"/>
-          <use href="#scene-road" x="125" y="100"/><use href="#scene-road" x="125" y="140"/><use href="#scene-road" x="125" y="180"/><use href="#scene-road" x="125" y="220"/>
-          <use href="#scene-road" x="125" y="260"/><use href="#scene-road" x="181" y="260"/><use href="#scene-road" x="181" y="300"/><use href="#scene-road" x="181" y="340"/>
-          <use href="#scene-road" x="125" y="340"/><use href="#scene-road" x="125" y="380"/>
-          <!-- firelight on the ground -->
-          <g stroke="none" fill="url(#scene-warm)"><circle cx="160" cy="138" r="46"/><circle cx="86" cy="238" r="20"/><circle cx="150" cy="392" r="76"/></g>
-          <!-- low mist -->
-          <g class="mist" filter="url(#scene-haze)" fill="var(--mist)" fill-opacity=".22" stroke="none"><ellipse cx="62" cy="118" rx="72" ry="11"/><ellipse cx="248" cy="204" rx="72" ry="12"/><ellipse cx="52" cy="300" rx="76" ry="11"/><ellipse cx="250" cy="360" rx="66" ry="11"/></g>
-          <use href="#scene-tree" x="38" y="44"/><use href="#scene-tree" x="262" y="124"/><use href="#scene-tree" x="264" y="284"/><use href="#scene-tree" x="40" y="324"/>
-          <!-- the chapel of a high priest -->
-          <ellipse cx="86" cy="242" rx="18" ry="3.5" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
-          <path d="M72 241V214L86 201L100 214V241Z" fill="var(--stone-deep)"/>
-          <path d="M72 222h8M92 222h8M72 231h7M93 231h7" stroke-opacity=".7" stroke-width=".8"/>
-          <path d="M68 215L86 199V179L68 195Z" fill="var(--stone)"/><path d="M104 215L86 199V179L104 195Z" fill="var(--stone)"/>
-          <path d="M68 215L86 199L104 215" stroke-width="2"/>
-          <path d="M68 195L86 179L104 195M86 180.5V198" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.2"/>
-          <circle cx="86" cy="209.5" r="2.8" stroke="var(--bone)" stroke-width="1.2"/>
-          <path d="M80.5 241V230a5.5 5.5 0 0 1 11 0V241Z" fill="var(--wick)"/>
-          <g transform="translate(86 239) scale(.16)"><g class="fl"><use href="#scene-flame"/></g></g>
-          <path d="M78 241h16v2.5H78Z" fill="var(--stone)"/>
-          <!-- the high priest at his door -->
-          <ellipse cx="109" cy="252" rx="14" ry="4" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
-          <path d="M123.5 251V198" stroke-width="3"/><path d="M123.5 251V198" stroke="var(--iron)" stroke-width="1.5"/>
-          <circle cx="123.5" cy="194.5" r="3.2" stroke-width="2.6"/><circle cx="123.5" cy="194.5" r="3.2" stroke="var(--bone)" stroke-width="1.2"/>
-          <path d="M95 249C96 234 99 221 103 213H113C117 221 120 234 121 249Q108 255 95 249Z" fill="var(--cope)"/>
-          <path d="M95.5 248.5Q108 254.5 120.5 248.5" stroke="var(--bone)" stroke-width="1.4"/>
-          <path d="M105.8 214H110.2L112 251.6H104Z" fill="var(--oxblood)"/>
-          <path d="M112 216Q118 221 121.5 227" stroke-width="5.2"/><path d="M112 216Q118 221 121.5 227" stroke="var(--cope)" stroke-width="3.4"/>
-          <circle cx="122.4" cy="228.2" r="2.2" fill="var(--skin)"/>
-          <path d="M101.5 213C100.5 201 103.5 193 108 186C112.5 193 115.5 201 114.5 213Q108 215.5 101.5 213Z" fill="var(--cope)"/>
-          <ellipse cx="108" cy="206" rx="3.4" ry="4.2" fill="var(--wick)"/><ellipse cx="108" cy="207.2" rx="2.4" ry="2.9" fill="var(--skin)" stroke="none"/>
-          <circle cx="108" cy="216.5" r="2.4" stroke="var(--bone)" stroke-width="1.2"/>
-          <path d="M103.8 205q0-10 4.2-17M99 244q-.5-14 4-27" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.1"/>
-          <!-- the Bearer on the road -->
-          <ellipse cx="151" cy="161" rx="12" ry="3.6" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
-          <path d="M159 148L165 113" stroke-width="3.2"/><path d="M159 148L165 113" stroke="var(--habit)" stroke-width="1.6"/>
-          <path d="M162.3 112.5H167.7L166.9 117.5H163.1Z" fill="var(--wool)"/>
-          <g transform="translate(165 113) scale(.42)"><g class="fl"><use href="#scene-flame"/></g></g>
-          <path d="M139.5 158C140 148 142 141 145 137H155C158 141 160 148 160.5 158Q150 162.5 139.5 158Z" fill="var(--cope)"/>
-          <path d="M142.4 147Q150 149.5 157.6 147M146 148.6l-.6 6" stroke="var(--wool)" stroke-width="1.4"/>
-          <path d="M157 141q2.5 7 3 16" stroke="var(--flame-glow)" stroke-width="1.4"/>
-          <path d="M155 139Q159.5 140 161.2 135" stroke-width="5"/><path d="M155 139Q159.5 140 161.2 135" stroke="var(--cope)" stroke-width="3.2"/>
-          <circle cx="161.4" cy="134" r="2.1" fill="var(--skin)"/>
-          <path d="M141.5 139C140.5 129 144 122 150 122C156 122 159.5 129 158.5 139Q150 142 141.5 139Z" fill="var(--oxblood)"/>
-          <ellipse cx="150" cy="132.5" rx="4.3" ry="5" fill="var(--wick)"/><ellipse cx="150.6" cy="134" rx="2.9" ry="3.4" fill="var(--skin)" stroke="none"/>
-          <path d="M156.5 127q2.5 4.5 2 11" stroke="var(--flame-glow)" stroke-width="1.6"/>
-          <path d="M143.8 128q1.6-4 5-5M143 143q-1 6-1.2 12" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.1"/>
-          <!-- the beacon at the road's end -->
-          <ellipse cx="150" cy="410" rx="20" ry="5" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
-          <path d="M137 346V404A13 9.2 0 0 0 163 404V346Z" fill="var(--stone-deep)"/>
-          <path d="M137 362A13 9.2 0 0 0 163 362M137 378A13 9.2 0 0 0 163 378M137 394A13 9.2 0 0 0 163 394" stroke-opacity=".7" stroke-width=".8"/>
-          <path d="M146 412.6V403a4 4 0 0 1 8 0V412.6Z" fill="var(--wick)"/>
-          <path d="M138.4 351V402" stroke="var(--moonlight)" stroke-opacity=".45" stroke-width="1.2"/>
-          <path d="M139 353Q150 361 161 353" stroke="var(--flame-glow)" stroke-width="1.6"/>
-          <ellipse cx="150" cy="346" rx="13" ry="9.2" fill="var(--stone)"/>
-          <path d="M135 339Q136.5 351 150 352Q163.5 351 165 339Z" fill="var(--iron)"/>
-          <ellipse cx="150" cy="339" rx="15" ry="4.6" fill="var(--flame-edge)"/>
-          <g transform="translate(142.5 340) scale(.5)"><g class="fl f2"><use href="#scene-flame"/></g></g>
-          <g transform="translate(158 340) scale(.55)"><g class="fl f2"><use href="#scene-flame"/></g></g>
-          <g transform="translate(150 341) scale(.9)"><g class="fl"><use href="#scene-flame"/></g></g>
-          <!-- mist about the feet, gloom at the far and near edges, then bloom -->
-          <g class="mist" filter="url(#scene-haze)" fill="var(--mist)" fill-opacity=".16" stroke="none"><ellipse cx="116" cy="258" rx="84" ry="7"/><ellipse cx="176" cy="414" rx="124" ry="10"/></g>
-          <rect width="300" height="450" fill="url(#scene-gloom)" stroke="none"/>
-          <g stroke="none" fill="url(#scene-bloom)"><circle class="glow" cx="165" cy="104" r="34"/><circle class="glow" cx="86" cy="235" r="12"/><circle class="glow" cx="150" cy="322" r="64"/></g>
-        </g>
-        <!-- tilt-shift: a blurred copy of the world, shown only in the top and bottom bands -->
-        <use href="#scene-world" filter="url(#scene-blur-top)" mask="url(#scene-tilt)"/>
-        <use href="#scene-world" filter="url(#scene-blur-foot)" mask="url(#scene-tilt)"/>
-      </svg>
-    </figure>
-    <div class="sheet-text">
-      <dl class="facts">
-        <dt>Hour</dt><dd>Night, and only night</dd>
-        <dt>Gaze</dt><dd>Fixed, from the south, 45° down</dd>
-        <dt>Light</dt><dd>Cold moon, warm fire</dd>
-      </dl>
-      <section class="field">
-        <h3>The gaze</h3>
-        <p class="drop">You look down on your works from the south, at forty-five degrees, and your gaze does not turn. The road comes in at the top of the world and goes out at the bottom, and every servant on it walks beneath your eye.</p>
-      </section>
-      <section class="field">
-        <h3>The diorama</h3>
-        <p>The land is a dark toy laid out on a table, as in the remake of <i>Link’s Awakening</i>: chunky bevelled tiles set a little apart so the dark shows between them, soft rounded forms, and servants made as glossy painted pieces, like chessmen lifted from their box. The top and bottom of the view fall soft, as if seen too near, with tilt-shift blur.</p>
-      </section>
-      <section class="field">
-        <h3>The night</h3>
-        <p>But this toy has been left out after dark, in the gloom of <i>Twilight Princess</i>. The sky is a deep blue-black. A low mist lies over the grass, and the greens and earths are drained near to grey. The moon gives every edge a cold rim and warms nothing. The torches and fires are the only warm light in the world, and they bloom.</p>
-      </section>
-      <section class="field">
-        <h3>The places</h3>
-        <ul class="places">
-          <li><b>The road</b> Packed earth, worn by bare feet, running from the top of the screen to the bottom.</li>
-          <li><b>The chapels</b> Each gate is a small dark chapel or shrine beside the road, with one arch and one low lamp. Its priest stands at the door and receives the torches.</li>
-          <li><b>The beacon</b> At the road’s end stands a stone tower with an iron bowl, the first lamp of the Architect’s machine. A lit torch that reaches it wakes it.</li>
-        </ul>
-      </section>
-      <section class="field">
-        <h3>Palette</h3>
-        <ul class="swatches">
-          <li style="--c: var(--sky)">Night sky</li>
-          <li style="--c: var(--mist)">Mist</li>
-          <li style="--c: var(--moonlight)">Moonlight</li>
-          <li style="--c: var(--grass)">Moonlit grass</li>
-          <li style="--c: var(--earth)">Packed earth</li>
-          <li style="--c: var(--stone)">Stone</li>
-          <li style="--c: var(--cope)">Cope black</li>
-          <li style="--c: var(--oxblood)">Oxblood</li>
-          <li style="--c: var(--bone)">Bone</li>
-          <li class="flame">Flame</li>
-        </ul>
-      </section>
-    </div>
-  </section>
-
-  <footer class="colophon">
-    <div class="flourish" aria-hidden="true">❦</div>
-    <p>Working document · servants and the Architect’s view</p>
-  </footer>
-
+<main id="doc" class="leaf" aria-busy="true">
+  <noscript>
+    <p class="fallback">This page needs JavaScript to set the design notes. <a href="design.md">Read design.md</a> as plain text instead.</p>
+  </noscript>
 </main>
+<script type="module">
+  // The words live in design.md; this page fetches them and renders the markdown.
+  const MARKED = 'https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.esm.js';
+
+  // Modules that need the rendered doc (for example './viewer.js'). They load,
+  // in order, once the markdown is in the page and the headings have their ids.
+  const ADDONS = [];
+
+  const doc = document.getElementById('doc');
+
+  // GitHub-style heading slugs ("The Architect’s View" -> "the-architects-view";
+  // repeats get -1, -2, ...), so the same #links work here and on github.com.
+  function slugger() {
+    const seen = new Map();
+    return (text) => {
+      const base = text.toLowerCase().trim()
+        .replace(/[^\p{L}\p{M}\p{N}\p{Pc}\- ]/gu, '')
+        .replace(/ /g, '-');
+      let slug = base;
+      while (seen.has(slug)) {
+        seen.set(base, seen.get(base) + 1);
+        slug = `${base}-${seen.get(base)}`;
+      }
+      seen.set(slug, 0);
+      return slug;
+    };
+  }
+
+  function enhance(root) {
+    const slug = slugger();
+    for (const h of root.querySelectorAll('h1, h2, h3, h4, h5, h6')) {
+      h.id = slug(h.textContent);
+    }
+    // Truth tables: mark each cell lit or dark for the torch glyph.
+    for (const td of root.querySelectorAll('td')) {
+      const v = td.textContent.trim();
+      if (v.startsWith('1')) td.classList.add('lit');
+      else if (v.startsWith('0')) td.classList.add('dark');
+    }
+  }
+
+  function scrollToHash() {
+    if (!location.hash) return;
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) target.scrollIntoView();
+  }
+
+  function fail(err) {
+    console.error(err);
+    doc.removeAttribute('aria-busy');
+    doc.innerHTML = '<p class="fallback">The design notes could not be set here. <a href="design.md">Read design.md</a> as plain text instead.</p>';
+  }
+
+  async function render() {
+    const [{ marked }, res] = await Promise.all([
+      import(MARKED),
+      fetch('design.md', { cache: 'no-cache' }),
+    ]);
+    if (!res.ok) throw new Error(`design.md: HTTP ${res.status}`);
+    doc.innerHTML = marked.parse(await res.text());
+    enhance(doc);
+    doc.removeAttribute('aria-busy');
+    scrollToHash();
+    document.dispatchEvent(new CustomEvent('doc:rendered', { detail: { root: doc } }));
+    for (const src of ADDONS) {
+      try { await import(src); } catch (err) { console.error(`Could not load ${src}`, err); }
+    }
+  }
+
+  render().catch(fail);
+</script>
 </body>
 </html>

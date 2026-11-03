@@ -1,9 +1,12 @@
 /* The Architect: design document
-   A smoked, candle-darkened manuscript: browned parchment by day, near-black vellum by candlelight.
-   Palette tokens are shared with the portrait SVGs: use var(--…) in fills/strokes.
+   The words live in design.md and are rendered into <main id="doc"> by index.html,
+   so these styles target plain markdown output (h1–h3, p, ul, ol, blockquote, table, hr, code).
+   A typewritten, candle-darkened manuscript: everything is set in Courier New, on browned
+   parchment by day and near-black vellum by candlelight.
+   Palette tokens below are the doc's colors; the game and the 3D work copy values from them.
    Vestments for monks, priests and high priests: --cope (near-black), --ash (grey),
    --oxblood, --bone, --iron; each has a light and a dark value and stays visible on the page.
-   Night tokens (--sky … --soot) paint the Architect's view and have one value: it is night in both modes. */
+   Night tokens (--sky … --soot) describe the Architect's view and have one value: it is night in both modes. */
 
 :root {
   /* page */
@@ -105,23 +108,24 @@ body {
     radial-gradient(ellipse at 50% 28%, var(--candlelight), transparent 65%);
   background-attachment: fixed;
   color: var(--ink);
-  font: 400 1.125rem/1.6 "EB Garamond", Garamond, Georgia, serif;
+  font: 400 1rem/1.65 "Courier New", Courier, monospace;
   overflow-wrap: break-word;
 }
+
+/* one face for everything, including the elements browsers set apart */
+code, pre, kbd, samp, table { font-family: inherit; font-size: 1em; }
 
 a { color: inherit; text-decoration-color: var(--rubric); text-underline-offset: 0.18em; }
 a:hover { color: var(--rubric); }
 a:focus-visible { outline: 2px solid var(--rubric); outline-offset: 2px; }
 
-.vh {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-}
+p { margin: 0 0 1rem; }
+strong { font-weight: 700; }
 
 /* ---------- the leaf ---------- */
 
 .leaf {
-  max-width: 58rem;
+  max-width: 50rem;
   margin: 0 auto;
   padding: 2.5rem 0 3rem;
 }
@@ -129,6 +133,7 @@ a:focus-visible { outline: 2px solid var(--rubric); outline-offset: 2px; }
 @media (min-width: 760px) {
   /* text sits on the leaf here, so the margins can take a second coat of smoke */
   body {
+    font-size: 1.0625rem;
     background-image:
       radial-gradient(ellipse at 50% 30%, transparent 35%, var(--vignette) 100%),
       radial-gradient(ellipse at 50% 30%, transparent 45%, var(--vignette) 100%),
@@ -150,364 +155,253 @@ a:focus-visible { outline: 2px solid var(--rubric); outline-offset: 2px; }
   }
 }
 
-/* ---------- masthead & intro ---------- */
+.fallback { margin: 2rem 0; text-align: center; }
 
-.masthead { text-align: center; margin-bottom: 2rem; }
+/* ---------- headings ---------- */
 
-.kicker,
-.gate {
+h1, h2, h3 { font-weight: 700; line-height: 1.15; scroll-margin-top: 1.25rem; }
+
+h1 {
+  margin: 0 0 0.4rem;
+  text-align: center;
+  font-size: clamp(2rem, 9vw, 3.25rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+h2 {
   margin: 0;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
+  text-align: center;
+  font-size: clamp(1.6rem, 7vw, 2.3rem);
+  letter-spacing: 0.06em;
+}
+
+h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--rubric);
 }
+h3::before { content: "¶"; margin-right: 0.5em; color: var(--gold); }
 
-h1 {
-  margin: 0.15em 0 0.1em;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 8vw, 3.8rem);
-  letter-spacing: 0.02em;
-  line-height: 1.05;
-}
-h1 .amp { color: var(--rubric); }
+/* ---------- masthead: title, subtitle, play link, opening ---------- */
 
-.subtitle {
+h1 + p {
   margin: 0;
-  font-family: "Cinzel", serif;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  text-align: center;
+  letter-spacing: 0.08em;
   color: var(--ink-soft);
 }
 
-.play-link {
-  margin: 0.7rem 0 0;
-  font-size: 1.05rem;
-  font-style: italic;
-}
-
-.intro { max-width: 38em; margin: 0 auto; }
-.intro p { margin: 0 0 1rem; }
-
-.orders {
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-}
-.orders li { border-top: 2px solid var(--rubric); padding-top: 0.5rem; line-height: 1.45; }
-.orders b {
-  display: block;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  color: var(--rubric);
-}
-
-.motto {
-  text-align: center;
-  font-family: "Cinzel", serif;
+h1 + p + p { margin: 1.1rem 0 2rem; text-align: center; }
+h1 + p + p a {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--rubric);
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: none;
   color: var(--rubric);
 }
+h1 + p + p a:hover { background: var(--parchment-shade); }
 
-.contents ol {
-  list-style: none;
-  margin: 1.5rem auto 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.3rem 1.25rem;
-  font-size: 1rem;
-}
-.contents small {
-  font-family: "Cinzel", serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  color: var(--rubric);
-}
-
-/* ---------- rubrication ---------- */
-
-.drop::first-letter {
+/* the opening paragraph gets a rubricated capital */
+h1 + p + p + p::first-letter {
   float: left;
   margin: 0.06em 0.14em 0 0;
   padding: 0.1em 0.14em 0.02em;
-  font-family: "Cinzel", serif;
-  font-style: normal;
-  font-weight: 700;
   font-size: 2.9em;
+  font-weight: 700;
   line-height: 0.95;
   color: var(--rubric);
   background: var(--parchment-shade);
   border: 1px solid var(--gold);
 }
 
-.flourish {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: 22rem;
-  margin: 2.75rem auto;
-  color: var(--rubric);
-  font-size: 1.3rem;
-  line-height: 1;
-}
-.flourish::before,
-.flourish::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold));
-}
-.flourish::after { background: linear-gradient(90deg, var(--gold), transparent); }
+/* ---------- lists ---------- */
 
-/* ---------- character sheets ---------- */
+ul { list-style: none; margin: 0 0 1rem; padding: 0; }
+ul > li { position: relative; margin: 0 0 0.5rem; padding-left: 1.6em; }
+ul > li::before { content: "†"; position: absolute; left: 0.3em; color: var(--rubric); }
+li > strong:first-child { color: var(--rubric); }
 
-.sheet { scroll-margin-top: 1rem; }
-
-.sheet-head { text-align: center; margin-bottom: 1.25rem; }
-.sheet h2 {
-  margin: 0.1em 0 0;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: clamp(1.6rem, 6vw, 2.3rem);
-  line-height: 1.1;
-}
-.title { margin: 0.15em 0 0; font-style: italic; color: var(--ink-soft); }
-
-/* Empty slot; a later task fills it with an inline SVG */
-.portrait {
-  position: relative;
-  width: min(15rem, 72%);
-  aspect-ratio: 3 / 4;
-  margin: 0 auto 1.75rem;
-  border: 1px solid var(--frame);
-  outline: 1px solid var(--frame);
-  outline-offset: 4px;
-  background: linear-gradient(180deg, var(--parchment-shade), transparent 85%);
-  box-shadow: inset 0 0 1.5rem var(--vignette);
-}
-.portrait > svg { display: block; width: 100%; height: 100%; }
-.portrait:empty::after {
-  content: "Portrait";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: "Cinzel", serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--frame);
-}
-
-/* Portrait line-art: ink outlines by default, fills set per shape from the tokens */
-.portrait svg {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 2.5;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-.portrait .fl {
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-  animation: flicker 1.7s ease-in-out infinite alternate;
-}
-.portrait .fl.f2 { animation-duration: 1.3s; animation-delay: -0.7s; }
-.portrait .glow { animation: glow 2.4s ease-in-out infinite alternate; }
-.portrait .smoke { animation: drift 3.2s ease-in-out infinite alternate; }
-@keyframes flicker {
-  0% { transform: scale(1, 1) skewX(0deg); }
-  40% { transform: scale(0.94, 1.07) skewX(-3deg); }
-  75% { transform: scale(1.04, 0.95) skewX(2deg); }
-  100% { transform: scale(0.97, 1.04) skewX(-1deg); }
-}
-@keyframes glow { from { opacity: 0.7; } to { opacity: 1; } }
-@keyframes drift { from { opacity: 0.55; transform: translateY(2px); } to { opacity: 1; transform: translateY(-3px); } }
-@media (prefers-reduced-motion: reduce) {
-  .portrait .fl, .portrait .glow, .portrait .smoke, .scene .mist { animation: none; }
-}
-
-.facts {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.2rem 1rem;
+/* the facts under each name: a rubric-ruled box */
+h2 + p + ul {
   margin: 0 0 0.5rem;
-  padding: 0.55rem 0.9rem;
+  padding: 0.6rem 0.9rem;
   border-left: 3px solid var(--rubric);
   background: var(--parchment-shade);
-  line-height: 1.4;
+  line-height: 1.45;
 }
-.facts dt {
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 0.75rem;
+h2 + p + ul > li { margin: 0.15rem 0; padding-left: 0; }
+h2 + p + ul > li::before { content: none; }
+h2 + p + ul strong {
+  margin-right: 0.3em;
+  font-size: 0.85em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--rubric);
-  padding-top: 0.2em;
 }
-.facts dd { margin: 0; }
 
-.field h3 {
-  margin: 1.4rem 0 0.35rem;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.15em;
+/* contents (the heading's id is set when the markdown is rendered) */
+#contents { font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rubric); }
+#contents + ol { max-width: 26rem; margin: 0.75rem auto 0; }
+
+ol { list-style: none; margin: 0 0 1rem; padding: 0; counter-reset: item; }
+ol > li {
+  position: relative;
+  padding: 0.3rem 0 0.3rem 3.2em;
+  border-bottom: 1px dotted var(--frame);
+  counter-increment: item;
+}
+ol > li::before {
+  content: counter(item, upper-roman) ".";
+  position: absolute;
+  left: 0;
+  width: 2.6em;
+  text-align: right;
+  color: var(--rubric);
+}
+
+/* ---------- sections ---------- */
+
+/* the rank line under each name */
+h2 + p {
+  margin: 0.45rem 0 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--rubric);
 }
-.field h3::before { content: "¶"; margin-right: 0.45em; color: var(--gold); font-family: "EB Garamond", serif; }
-.field p { margin: 0; }
+h2 + p em { font-style: normal; }
 
-.drop::after { content: ""; display: block; clear: both; }
+/* flourish between sections */
+hr {
+  position: relative;
+  height: 1.5rem;
+  max-width: 22rem;
+  margin: 2.75rem auto;
+  border: 0;
+  overflow: visible;
+  background:
+    linear-gradient(90deg, transparent, var(--gold)) left center / calc(50% - 1.25rem) 1px no-repeat,
+    linear-gradient(90deg, var(--gold), transparent) right center / calc(50% - 1.25rem) 1px no-repeat;
+}
+hr::after {
+  content: "❦";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  color: var(--rubric);
+}
 
-.rule { font-style: italic; font-size: 1.15em; line-height: 1.5; }
+/* the motto */
+blockquote {
+  max-width: 34rem;
+  margin: 1.75rem auto;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--rubric);
+}
+blockquote p { margin: 0; }
+
+/* "The rule": each servant's own words */
+h3 + blockquote {
+  max-width: none;
+  margin: 0;
+  padding: 0.75rem 1rem 0.75rem 1.1rem;
+  border: 0;
+  border-left: 3px solid var(--gold);
+  background: var(--parchment-shade);
+  text-align: left;
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55;
+  color: var(--ink);
+}
+h3 + blockquote p::before { content: "“"; color: var(--rubric); }
+h3 + blockquote p::after { content: "”"; color: var(--rubric); }
+
+code {
+  padding: 0.05em 0.3em;
+  background: var(--parchment-shade);
+  border: 1px solid var(--frame);
+}
+
+/* the colophon */
+hr + p:last-child {
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+hr + p:last-child em { font-style: normal; }
 
 /* ---------- truth tables ---------- */
 
-.truth {
+/* a wide table scrolls inside its own box, never the page */
+table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0.25rem 0 0;
   border-collapse: collapse;
-  font-variant-numeric: tabular-nums lining-nums;
-  margin-top: 0.25rem;
+  font-variant-numeric: tabular-nums;
 }
-.truth th {
-  padding: 0.3rem 0.85rem;
+th {
+  padding: 0.35rem 0.85rem;
   border-bottom: 2px solid var(--rubric);
   text-align: left;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--rubric);
 }
-.truth td {
-  padding: 0.3rem 0.85rem;
+td {
+  padding: 0.35rem 0.85rem;
   border-bottom: 1px solid var(--frame);
   white-space: nowrap;
 }
-.truth th:last-child,
-.truth td:last-child {
+th:last-child,
+td:last-child {
   border-left: 1px solid var(--frame);
   background: var(--parchment-shade);
 }
-.truth td:last-child { font-weight: 600; }
-.truth i { margin-left: 0.15em; font-size: 0.82em; font-weight: 400; color: var(--ink-soft); }
+td:last-child { font-weight: 700; }
+td em { margin-left: 0.1em; font-size: 0.9em; font-weight: 400; color: var(--ink-soft); }
 
 /* torch glyph: a flame when lit, a cold wick when dark */
-.truth td::before {
+td.lit::before,
+td.dark::before {
   content: "";
   display: inline-block;
   width: 0.62em;
   height: 0.62em;
-  margin: 0 0.5em 0 0.1em;
+  margin: 0 0.55em 0 0.1em;
   border-radius: 50% 0 50% 50%;
   transform: rotate(-45deg);
   vertical-align: 0.05em;
 }
-.truth td.lit::before {
+td.lit::before {
   background: radial-gradient(circle at 60% 40%, var(--flame-core) 0 22%, var(--flame) 55%, var(--flame-edge) 100%);
   box-shadow: 0 0 0.45em var(--flame-glow);
 }
-.truth td.dark::before {
+td.dark::before {
   background: var(--wick);
   border: 1px solid var(--smoke);
-}
-
-/* ---------- wide screens: portrait beside text ---------- */
-
-@media (min-width: 760px) {
-  .sheet {
-    display: grid;
-    grid-template-columns: 13.5rem minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
-    column-gap: 2.5rem;
-    align-items: start;
-  }
-  .sheet-head { grid-column: 2; grid-row: 1; text-align: left; }
-  .portrait { grid-column: 1; grid-row: 1 / span 2; width: 100%; margin: 0.4rem 0 0; }
-  .sheet-text { grid-column: 2; grid-row: 2; }
-}
-
-/* ---------- the Architect's view ---------- */
-
-/* framed like a portrait, but always night */
-.scene {
-  width: min(20rem, 100%);
-  aspect-ratio: 2 / 3;
-  background: var(--sky);
-}
-.scene svg { stroke: var(--soot); stroke-width: 1; }
-.scene .mist { animation: mist 14s ease-in-out infinite alternate; }
-@keyframes mist { from { transform: translateX(-6px); } to { transform: translateX(6px); } }
-
-.places { list-style: none; margin: 0; padding: 0; }
-.places li {
-  margin: 0 0 0.55rem;
-  padding-left: 0.85rem;
-  border-left: 2px solid var(--frame);
-  line-height: 1.45;
-}
-.places b {
-  margin-right: 0.3em;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  color: var(--rubric);
-}
-
-/* each swatch is a little bevelled tile, like the board's */
-.swatches {
-  list-style: none;
-  margin: 0.4rem 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
-  gap: 0.8rem 0.6rem;
-  font-size: 0.88rem;
-  line-height: 1.25;
-}
-.swatches li { display: flex; flex-direction: column; gap: 0.3rem; }
-.swatches li::before {
-  content: "";
-  height: 2.4rem;
-  border: 1px solid var(--frame);
-  border-radius: 6px;
-  background: var(--c);
-  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.16), inset 0 -5px 0 rgba(0, 0, 0, 0.32);
-}
-.swatches .flame::before {
-  background: radial-gradient(ellipse at 50% 70%, var(--flame-core) 0 18%, var(--flame) 55%, var(--flame-edge) 100%);
-  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -5px 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem var(--flame-glow);
-}
-
-@media (min-width: 760px) {
-  .view { grid-template-columns: 18rem minmax(0, 1fr); }
-  .scene { position: sticky; top: 1.5rem; }
-}
-
-/* ---------- colophon ---------- */
-
-.colophon { text-align: center; }
-.colophon .flourish { margin-bottom: 1rem; }
-.colophon p {
-  margin: 0;
-  font-family: "Cinzel", serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
 }
