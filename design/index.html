@@ -32,7 +32,7 @@
     <p class="motto">Monks carry, priests weigh, high priests overturn.</p>
   </section>
 
-  <nav class="contents" aria-label="Characters">
+  <nav class="contents" aria-label="Contents">
     <ol>
       <li><a href="#torchbearer">The Bearer <small>Monk</small></a></li>
       <li><a href="#not">NOT <small>High priest</small></a></li>
@@ -40,6 +40,7 @@
       <li><a href="#or">OR <small>Priest</small></a></li>
       <li><a href="#nand">NAND <small>High priest</small></a></li>
       <li><a href="#nor">NOR <small>High priest</small></a></li>
+      <li><a href="#view">The Architect’s View <small>The world</small></a></li>
     </ol>
   </nav>
 
@@ -558,9 +559,162 @@
     </div>
   </article>
 
+  <div class="flourish" aria-hidden="true">❦</div>
+
+  <!-- The Architect's view -->
+  <section class="sheet view" id="view" aria-labelledby="view-name">
+    <header class="sheet-head">
+      <p class="gate">The world</p>
+      <h2 id="view-name">The Architect’s View</h2>
+      <p class="title">The machine, seen from above</p>
+    </header>
+    <figure class="portrait scene">
+      <svg viewBox="0 0 300 450" role="img" aria-labelledby="scene-title">
+        <title id="scene-title">A stretch of the board at night, seen from the south and above: chunky bevelled grass tiles with dark gaps between them, a packed-earth road winding down from the top, a small hooded monk walking it with a lit torch, a high priest in a black cope and ringed staff beside a small dark stone chapel with one arched door and a low lamp, low mist over the grass, and at the bottom a stone beacon tower whose fire burns, with the top and bottom of the view softened by tilt-shift blur</title>
+        <defs>
+          <linearGradient id="scene-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--sky-haze)"/><stop offset="1" stop-color="var(--sky)"/></linearGradient>
+          <linearGradient id="scene-gloom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--sky)" stop-opacity=".8"/><stop offset=".22" stop-color="var(--sky)" stop-opacity="0"/><stop offset=".8" stop-color="var(--sky)" stop-opacity="0"/><stop offset="1" stop-color="var(--sky)" stop-opacity=".6"/></linearGradient>
+          <radialGradient id="scene-warm"><stop offset="0" stop-color="var(--flame)" stop-opacity=".28"/><stop offset="1" stop-color="var(--flame)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="scene-bloom"><stop offset="0" stop-color="var(--flame-core)" stop-opacity=".6"/><stop offset=".22" stop-color="var(--flame)" stop-opacity=".32"/><stop offset="1" stop-color="var(--flame)" stop-opacity="0"/></radialGradient>
+          <linearGradient id="scene-edges" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".08" stop-color="#fff"/><stop offset=".22" stop-color="#000"/><stop offset=".82" stop-color="#000"/><stop offset=".94" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient>
+          <mask id="scene-tilt" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="450"><rect width="300" height="450" fill="url(#scene-edges)"/></mask>
+          <filter id="scene-blur-top" filterUnits="userSpaceOnUse" x="-10" y="-10" width="320" height="115"><feGaussianBlur stdDeviation="3"/></filter>
+          <filter id="scene-blur-foot" filterUnits="userSpaceOnUse" x="-10" y="360" width="320" height="100"><feGaussianBlur stdDeviation="3"/></filter>
+          <filter id="scene-haze" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+          <g id="scene-flame"><path d="M0 3C-11 3-15-5-13-13C-11-21-4-24-3-36C3-31 6-25 6-20C9-24 9-28 8-33C14-27 15-18 13-10C12-3 7 3 0 3Z" fill="var(--flame)" stroke="var(--flame-edge)" stroke-width="2"/><path d="M0 1C-6 1-8-4-6-9C-5-13-1-15-1-22C4-17 6-12 5-7C5-2 3 1 0 1Z" fill="var(--flame-core)" stroke="none"/></g>
+          <g id="scene-tile" stroke="none"><rect y="26" width="50" height="13" rx="4" fill="var(--clay)"/><rect width="50" height="34" rx="6" fill="var(--grass-deep)"/><rect x="2.5" y="2" width="45" height="28.5" rx="4.5" fill="var(--grass)"/><rect x="5" y="3.5" width="40" height="7" rx="3" fill="var(--moonlight)" fill-opacity=".07"/><path d="M7 1.3H43" stroke="var(--moonlight)" stroke-opacity=".5" stroke-width="1.2" stroke-linecap="round"/></g>
+          <g id="scene-road" stroke="none"><rect y="26" width="50" height="13" rx="4" fill="var(--clay)"/><rect width="50" height="34" rx="6" fill="var(--earth-deep)"/><rect x="2.5" y="2" width="45" height="28.5" rx="4.5" fill="var(--earth)"/><rect x="5" y="3.5" width="40" height="7" rx="3" fill="var(--moonlight)" fill-opacity=".06"/><path d="M7 1.3H43" stroke="var(--moonlight)" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/></g>
+          <pattern id="scene-board" patternUnits="userSpaceOnUse" x="13" y="-20" width="56" height="40"><use href="#scene-tile"/></pattern>
+          <g id="scene-tree">
+            <ellipse cy="1" rx="11" ry="3.5" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
+            <path d="M-1.8 1V-7H1.8V1Z" fill="var(--earth-deep)"/>
+            <g stroke-width="2"><circle cx="-5" cy="-11" r="6.5"/><circle cx="5" cy="-11" r="6.5"/><circle cy="-17" r="8"/></g>
+            <g fill="var(--grass-deep)" stroke="none"><circle cx="-5" cy="-11" r="6.5"/><circle cx="5" cy="-11" r="6.5"/><circle cy="-17" r="8"/></g>
+            <path d="M-6 -20q3-6 9.5-5.5" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.3"/>
+          </g>
+        </defs>
+        <g id="scene-world">
+          <rect width="300" height="450" fill="url(#scene-sky)" stroke="none"/>
+          <rect x="13" y="-20" width="274" height="480" fill="var(--soot)" stroke="none"/>
+          <rect x="13" y="-20" width="274" height="480" fill="url(#scene-board)" stroke="none"/>
+          <!-- the road: tile by tile from the top of the world to the beacon -->
+          <use href="#scene-road" x="181" y="-20"/><use href="#scene-road" x="181" y="20"/><use href="#scene-road" x="181" y="60"/><use href="#scene-road" x="125" y="60"/>
+          <use href="#scene-road" x="125" y="100"/><use href="#scene-road" x="125" y="140"/><use href="#scene-road" x="125" y="180"/><use href="#scene-road" x="125" y="220"/>
+          <use href="#scene-road" x="125" y="260"/><use href="#scene-road" x="181" y="260"/><use href="#scene-road" x="181" y="300"/><use href="#scene-road" x="181" y="340"/>
+          <use href="#scene-road" x="125" y="340"/><use href="#scene-road" x="125" y="380"/>
+          <!-- firelight on the ground -->
+          <g stroke="none" fill="url(#scene-warm)"><circle cx="160" cy="138" r="46"/><circle cx="86" cy="238" r="20"/><circle cx="150" cy="392" r="76"/></g>
+          <!-- low mist -->
+          <g class="mist" filter="url(#scene-haze)" fill="var(--mist)" fill-opacity=".22" stroke="none"><ellipse cx="62" cy="118" rx="72" ry="11"/><ellipse cx="248" cy="204" rx="72" ry="12"/><ellipse cx="52" cy="300" rx="76" ry="11"/><ellipse cx="250" cy="360" rx="66" ry="11"/></g>
+          <use href="#scene-tree" x="38" y="44"/><use href="#scene-tree" x="262" y="124"/><use href="#scene-tree" x="264" y="284"/><use href="#scene-tree" x="40" y="324"/>
+          <!-- the chapel of a high priest -->
+          <ellipse cx="86" cy="242" rx="18" ry="3.5" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
+          <path d="M72 241V214L86 201L100 214V241Z" fill="var(--stone-deep)"/>
+          <path d="M72 222h8M92 222h8M72 231h7M93 231h7" stroke-opacity=".7" stroke-width=".8"/>
+          <path d="M68 215L86 199V179L68 195Z" fill="var(--stone)"/><path d="M104 215L86 199V179L104 195Z" fill="var(--stone)"/>
+          <path d="M68 215L86 199L104 215" stroke-width="2"/>
+          <path d="M68 195L86 179L104 195M86 180.5V198" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.2"/>
+          <circle cx="86" cy="209.5" r="2.8" stroke="var(--bone)" stroke-width="1.2"/>
+          <path d="M80.5 241V230a5.5 5.5 0 0 1 11 0V241Z" fill="var(--wick)"/>
+          <g transform="translate(86 239) scale(.16)"><g class="fl"><use href="#scene-flame"/></g></g>
+          <path d="M78 241h16v2.5H78Z" fill="var(--stone)"/>
+          <!-- the high priest at his door -->
+          <ellipse cx="109" cy="252" rx="14" ry="4" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
+          <path d="M123.5 251V198" stroke-width="3"/><path d="M123.5 251V198" stroke="var(--iron)" stroke-width="1.5"/>
+          <circle cx="123.5" cy="194.5" r="3.2" stroke-width="2.6"/><circle cx="123.5" cy="194.5" r="3.2" stroke="var(--bone)" stroke-width="1.2"/>
+          <path d="M95 249C96 234 99 221 103 213H113C117 221 120 234 121 249Q108 255 95 249Z" fill="var(--cope)"/>
+          <path d="M95.5 248.5Q108 254.5 120.5 248.5" stroke="var(--bone)" stroke-width="1.4"/>
+          <path d="M105.8 214H110.2L112 251.6H104Z" fill="var(--oxblood)"/>
+          <path d="M112 216Q118 221 121.5 227" stroke-width="5.2"/><path d="M112 216Q118 221 121.5 227" stroke="var(--cope)" stroke-width="3.4"/>
+          <circle cx="122.4" cy="228.2" r="2.2" fill="var(--skin)"/>
+          <path d="M101.5 213C100.5 201 103.5 193 108 186C112.5 193 115.5 201 114.5 213Q108 215.5 101.5 213Z" fill="var(--cope)"/>
+          <ellipse cx="108" cy="206" rx="3.4" ry="4.2" fill="var(--wick)"/><ellipse cx="108" cy="207.2" rx="2.4" ry="2.9" fill="var(--skin)" stroke="none"/>
+          <circle cx="108" cy="216.5" r="2.4" stroke="var(--bone)" stroke-width="1.2"/>
+          <path d="M103.8 205q0-10 4.2-17M99 244q-.5-14 4-27" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.1"/>
+          <!-- the Bearer on the road -->
+          <ellipse cx="151" cy="161" rx="12" ry="3.6" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
+          <path d="M159 148L165 113" stroke-width="3.2"/><path d="M159 148L165 113" stroke="var(--habit)" stroke-width="1.6"/>
+          <path d="M162.3 112.5H167.7L166.9 117.5H163.1Z" fill="var(--wool)"/>
+          <g transform="translate(165 113) scale(.42)"><g class="fl"><use href="#scene-flame"/></g></g>
+          <path d="M139.5 158C140 148 142 141 145 137H155C158 141 160 148 160.5 158Q150 162.5 139.5 158Z" fill="var(--cope)"/>
+          <path d="M142.4 147Q150 149.5 157.6 147M146 148.6l-.6 6" stroke="var(--wool)" stroke-width="1.4"/>
+          <path d="M157 141q2.5 7 3 16" stroke="var(--flame-glow)" stroke-width="1.4"/>
+          <path d="M155 139Q159.5 140 161.2 135" stroke-width="5"/><path d="M155 139Q159.5 140 161.2 135" stroke="var(--cope)" stroke-width="3.2"/>
+          <circle cx="161.4" cy="134" r="2.1" fill="var(--skin)"/>
+          <path d="M141.5 139C140.5 129 144 122 150 122C156 122 159.5 129 158.5 139Q150 142 141.5 139Z" fill="var(--oxblood)"/>
+          <ellipse cx="150" cy="132.5" rx="4.3" ry="5" fill="var(--wick)"/><ellipse cx="150.6" cy="134" rx="2.9" ry="3.4" fill="var(--skin)" stroke="none"/>
+          <path d="M156.5 127q2.5 4.5 2 11" stroke="var(--flame-glow)" stroke-width="1.6"/>
+          <path d="M143.8 128q1.6-4 5-5M143 143q-1 6-1.2 12" stroke="var(--moonlight)" stroke-opacity=".6" stroke-width="1.1"/>
+          <!-- the beacon at the road's end -->
+          <ellipse cx="150" cy="410" rx="20" ry="5" fill="var(--soot)" fill-opacity=".55" stroke="none"/>
+          <path d="M137 346V404A13 9.2 0 0 0 163 404V346Z" fill="var(--stone-deep)"/>
+          <path d="M137 362A13 9.2 0 0 0 163 362M137 378A13 9.2 0 0 0 163 378M137 394A13 9.2 0 0 0 163 394" stroke-opacity=".7" stroke-width=".8"/>
+          <path d="M146 412.6V403a4 4 0 0 1 8 0V412.6Z" fill="var(--wick)"/>
+          <path d="M138.4 351V402" stroke="var(--moonlight)" stroke-opacity=".45" stroke-width="1.2"/>
+          <path d="M139 353Q150 361 161 353" stroke="var(--flame-glow)" stroke-width="1.6"/>
+          <ellipse cx="150" cy="346" rx="13" ry="9.2" fill="var(--stone)"/>
+          <path d="M135 339Q136.5 351 150 352Q163.5 351 165 339Z" fill="var(--iron)"/>
+          <ellipse cx="150" cy="339" rx="15" ry="4.6" fill="var(--flame-edge)"/>
+          <g transform="translate(142.5 340) scale(.5)"><g class="fl f2"><use href="#scene-flame"/></g></g>
+          <g transform="translate(158 340) scale(.55)"><g class="fl f2"><use href="#scene-flame"/></g></g>
+          <g transform="translate(150 341) scale(.9)"><g class="fl"><use href="#scene-flame"/></g></g>
+          <!-- mist about the feet, gloom at the far and near edges, then bloom -->
+          <g class="mist" filter="url(#scene-haze)" fill="var(--mist)" fill-opacity=".16" stroke="none"><ellipse cx="116" cy="258" rx="84" ry="7"/><ellipse cx="176" cy="414" rx="124" ry="10"/></g>
+          <rect width="300" height="450" fill="url(#scene-gloom)" stroke="none"/>
+          <g stroke="none" fill="url(#scene-bloom)"><circle class="glow" cx="165" cy="104" r="34"/><circle class="glow" cx="86" cy="235" r="12"/><circle class="glow" cx="150" cy="322" r="64"/></g>
+        </g>
+        <!-- tilt-shift: a blurred copy of the world, shown only in the top and bottom bands -->
+        <use href="#scene-world" filter="url(#scene-blur-top)" mask="url(#scene-tilt)"/>
+        <use href="#scene-world" filter="url(#scene-blur-foot)" mask="url(#scene-tilt)"/>
+      </svg>
+    </figure>
+    <div class="sheet-text">
+      <dl class="facts">
+        <dt>Hour</dt><dd>Night, and only night</dd>
+        <dt>Gaze</dt><dd>Fixed, from the south, 45° down</dd>
+        <dt>Light</dt><dd>Cold moon, warm fire</dd>
+      </dl>
+      <section class="field">
+        <h3>The gaze</h3>
+        <p class="drop">You look down on your works from the south, at forty-five degrees, and your gaze does not turn. The road comes in at the top of the world and goes out at the bottom, and every servant on it walks beneath your eye.</p>
+      </section>
+      <section class="field">
+        <h3>The diorama</h3>
+        <p>The land is a dark toy laid out on a table, as in the remake of <i>Link’s Awakening</i>: chunky bevelled tiles set a little apart so the dark shows between them, soft rounded forms, and servants made as glossy painted pieces, like chessmen lifted from their box. The top and bottom of the view fall soft, as if seen too near, with tilt-shift blur.</p>
+      </section>
+      <section class="field">
+        <h3>The night</h3>
+        <p>But this toy has been left out after dark, in the gloom of <i>Twilight Princess</i>. The sky is a deep blue-black. A low mist lies over the grass, and the greens and earths are drained near to grey. The moon gives every edge a cold rim and warms nothing. The torches and fires are the only warm light in the world, and they bloom.</p>
+      </section>
+      <section class="field">
+        <h3>The places</h3>
+        <ul class="places">
+          <li><b>The road</b> Packed earth, worn by bare feet, running from the top of the screen to the bottom.</li>
+          <li><b>The chapels</b> Each gate is a small dark chapel or shrine beside the road, with one arch and one low lamp. Its priest stands at the door and receives the torches.</li>
+          <li><b>The beacon</b> At the road’s end stands a stone tower with an iron bowl, the first lamp of the Architect’s machine. A lit torch that reaches it wakes it.</li>
+        </ul>
+      </section>
+      <section class="field">
+        <h3>Palette</h3>
+        <ul class="swatches">
+          <li style="--c: var(--sky)">Night sky</li>
+          <li style="--c: var(--mist)">Mist</li>
+          <li style="--c: var(--moonlight)">Moonlight</li>
+          <li style="--c: var(--grass)">Moonlit grass</li>
+          <li style="--c: var(--earth)">Packed earth</li>
+          <li style="--c: var(--stone)">Stone</li>
+          <li style="--c: var(--cope)">Cope black</li>
+          <li style="--c: var(--oxblood)">Oxblood</li>
+          <li style="--c: var(--bone)">Bone</li>
+          <li class="flame">Flame</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
   <footer class="colophon">
     <div class="flourish" aria-hidden="true">❦</div>
-    <p>Working document · servants only · portraits to follow</p>
+    <p>Working document · servants and the Architect’s view · portraits to follow</p>
   </footer>
 
 </main>

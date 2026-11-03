@@ -2,7 +2,8 @@
    A smoked, candle-darkened manuscript: browned parchment by day, near-black vellum by candlelight.
    Palette tokens are shared with the portrait SVGs: use var(--…) in fills/strokes.
    Vestments for monks, priests and high priests: --cope (near-black), --ash (grey),
-   --oxblood, --bone, --iron; each has a light and a dark value and stays visible on the page. */
+   --oxblood, --bone, --iron; each has a light and a dark value and stays visible on the page.
+   Night tokens (--sky … --soot) paint the Architect's view and have one value: it is night in both modes. */
 
 :root {
   /* page */
@@ -41,6 +42,20 @@
   --oxblood: #4a1414;
   --bone: #efe6cf;
   --iron: #3f454d;
+
+  /* night: the Architect's view (not redefined in dark mode) */
+  --sky: #0a0f1d;
+  --sky-haze: #1a2340;
+  --mist: #8794a8;
+  --moonlight: #bccce4;
+  --grass: #3e4d3a;
+  --grass-deep: #263023;
+  --earth: #806849;
+  --earth-deep: #4a3a29;
+  --clay: #221a13;
+  --stone: #565b64;
+  --stone-deep: #2e3139;
+  --soot: #05070d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -320,7 +335,7 @@ h1 .amp { color: var(--rubric); }
 @keyframes glow { from { opacity: 0.7; } to { opacity: 1; } }
 @keyframes drift { from { opacity: 0.55; transform: translateY(2px); } to { opacity: 1; transform: translateY(-3px); } }
 @media (prefers-reduced-motion: reduce) {
-  .portrait .fl, .portrait .glow, .portrait .smoke { animation: none; }
+  .portrait .fl, .portrait .glow, .portrait .smoke, .scene .mist { animation: none; }
 }
 
 .facts {
@@ -424,6 +439,64 @@ h1 .amp { color: var(--rubric); }
   .sheet-head { grid-column: 2; grid-row: 1; text-align: left; }
   .portrait { grid-column: 1; grid-row: 1 / span 2; width: 100%; margin: 0.4rem 0 0; }
   .sheet-text { grid-column: 2; grid-row: 2; }
+}
+
+/* ---------- the Architect's view ---------- */
+
+/* framed like a portrait, but always night */
+.scene {
+  width: min(20rem, 100%);
+  aspect-ratio: 2 / 3;
+  background: var(--sky);
+}
+.scene svg { stroke: var(--soot); stroke-width: 1; }
+.scene .mist { animation: mist 14s ease-in-out infinite alternate; }
+@keyframes mist { from { transform: translateX(-6px); } to { transform: translateX(6px); } }
+
+.places { list-style: none; margin: 0; padding: 0; }
+.places li {
+  margin: 0 0 0.55rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--frame);
+  line-height: 1.45;
+}
+.places b {
+  margin-right: 0.3em;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--rubric);
+}
+
+/* each swatch is a little bevelled tile, like the board's */
+.swatches {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+  gap: 0.8rem 0.6rem;
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+.swatches li { display: flex; flex-direction: column; gap: 0.3rem; }
+.swatches li::before {
+  content: "";
+  height: 2.4rem;
+  border: 1px solid var(--frame);
+  border-radius: 6px;
+  background: var(--c);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.16), inset 0 -5px 0 rgba(0, 0, 0, 0.32);
+}
+.swatches .flame::before {
+  background: radial-gradient(ellipse at 50% 70%, var(--flame-core) 0 18%, var(--flame) 55%, var(--flame-edge) 100%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -5px 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem var(--flame-glow);
+}
+
+@media (min-width: 760px) {
+  .view { grid-template-columns: 18rem minmax(0, 1fr); }
+  .scene { position: sticky; top: 1.5rem; }
 }
 
 /* ---------- colophon ---------- */
